@@ -15,7 +15,7 @@
 .container {
 	display: grid;
 	grid-template-columns: [col1-start] 20% [col1-end col2-start] 25% [col2-end col3-start] 25% [col3-end col4-start] 30%; 
-	grid-template-rows: [row1-start] 20% [row1-end row2-start] 20% [row2-end row3-start] 20% [row3-end row4-start] 20% [row4-end row5-start] 20% [row1-end row2-start] 20%;
+	grid-template-rows: [row1-start] 10% [row1-end row2-start] 20% [row2-end row3-start] 20% [row3-end row4-start] 20% [row4-end row5-start] 50%;
 
 }
 
@@ -26,18 +26,22 @@
 	align-items: center;
 	padding: 20px;
 }
-nav {
+.navbar nav {
 	text-align: right;
 }
 
-nav ul {
+.navbar nav ul {
 	display: inline-flex;
 	list-style-type: none;
+	background-color: #c6e2e9;
+	padding: 10px;
+	border-radius: 5px;
 }
 
-nav ul li {
+.navbar nav ul li {
 	display: inline-block;
 	margin-right: 20px;
+	font: 30px Arial, sans-serif;
 
 }
 
@@ -68,3 +72,38 @@ p {
 .item img {
 	max-height: 150px;
 }
+
+
+.bottom-row {
+	grid-row-start: 5;
+	grid-column-start: 1;
+	grid-column-end: 5;
+	display: inline-flex;
+	justify-content: space-between;
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 50px;
+	background-color: #a7bed3;
+	padding: 50px;
+}
+
+.bottom-item {
+	font: 20px Arial, sans-serif;
+}
+
+.bottom-item ul {
+	list-style-type: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
