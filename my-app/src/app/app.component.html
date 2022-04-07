@@ -16,8 +16,12 @@
     <link rel="stylesheet" type="text/css" href="">
 
   </div>
+  
 
   <div class="container">
+    <div class="cart">
+      <a routerLink="/cart" routerLinkActive="active"><fa-icon [icon]="faCartShopping" size="4x"></fa-icon></a>
+    </div>
     <app-navbar></app-navbar>
     <div class="small-container">
       <router-outlet></router-outlet>

@@ -30,9 +30,17 @@ p {
 	
 }
 
+.cart {
+	grid-column-start: 5;
+	grid-row-start: 1;
+}
+fa-icon {
+	size: 200%;
+}
+
 app-navbar {
 	grid-column-start: 4;
-	grid-row-start: 1;
+	grid-row-start: 2;
 	display: flex;
 	align-items: center;
 	padding: 20px;

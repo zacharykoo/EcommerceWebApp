@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { AccountComponent } from './account/account.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { AccountComponent } from './account/account.component';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    AccountComponent
+    AccountComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
