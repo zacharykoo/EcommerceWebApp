@@ -14,7 +14,7 @@
 
 .container {
 	display: grid;
-	grid-template-columns: [col1-start] 20% [col1-end col2-start] 25% [col2-end col3-start] 25% [col3-end col4-start] 30%; 
+	grid-template-columns: [col1-start] 20% [col1-end col2-start] 25% [col2-end col3-start] 20% [col3-end col4-start] 30%; 
 	grid-template-rows: [row1-start] 10% [row1-end row2-start] 20% [row2-end row3-start] 20% [row3-end row4-start] 20% [row4-end row5-start] 50%;
 
 }
