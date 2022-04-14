@@ -5,19 +5,29 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository/lite"
+	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/service"
+	"gorm.io/gorm"
 )
 
 func main() {
 	fmt.Println("Hello world")
+
+	db := ConnectToDatabase()
+	customerRepository := lite.GetCustomerRepository(db)
+	customerService := service.GetCustomerService(&customerRepository)
+
 	r := mux.NewRouter()
-	r.HandleFunc("/api/customer", getCustomer("zachary"))
+	r.Handle("/api/customer", customerService.Get())
 	fmt.Println("Serving on :8081...")
 	http.ListenAndServe(":8081", r)
+
 }
 
-func getCustomer(zachary string) func(w http.ResponseWriter, r *http.Request) {
-	return func(w http.ResponseWriter, r *http.Request) {
-		test := r.URL.Query()[zachary]
-		w.Write([]byte("Hello World " + test[0]))
-	}
+// make this connect to a sqlite database, or w/e db
+// might need to make this return an error later too
+func ConnectToDatabase() *gorm.DB {
+
+	// STUB, NEED TO DO THIS
+	return nil
 }

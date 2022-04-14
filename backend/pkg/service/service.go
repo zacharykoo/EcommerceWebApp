@@ -2,8 +2,8 @@ package service
 
 import "net/http"
 
-type Customer interface {
-	Get() http.Handler
-	Set() http.Handler
-	Edit() http.Handler
+type CustomerService interface {
+	Get() http.HandlerFunc
+	Set() http.HandlerFunc
+	Edit() http.HandlerFunc
 }
