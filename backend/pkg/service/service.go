@@ -4,6 +4,6 @@ import "net/http"
 
 type CustomerService interface {
 	Get() http.HandlerFunc
-	Set() http.HandlerFunc
+	Create() http.HandlerFunc
 	Edit() http.HandlerFunc
 }

@@ -5,29 +5,35 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/database"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository/lite"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/service"
-	"gorm.io/gorm"
 )
 
 func main() {
 	fmt.Println("Hello world")
+	//service.GetCustomerService()
 
-	db := ConnectToDatabase()
+	db, err := database.ConnectSQLite()
+	if err != nil {
+		fmt.Printf("unable to connect to database: %v\n", err)
+		return
+	}
+
+	err = database.MigrateTables(db)
+	if err != nil {
+		fmt.Printf("unable to migrate tables: %v", err)
+		return
+	}
+
 	customerRepository := lite.GetCustomerRepository(db)
 	customerService := service.GetCustomerService(&customerRepository)
 
 	r := mux.NewRouter()
-	r.Handle("/api/customer", customerService.Get())
+
+	r.Handle("/api/customer", customerService.Get()).Methods("GET")
+	r.Handle("/api/customer", customerService.Create()).Methods("POST")
+
 	fmt.Println("Serving on :8081...")
 	http.ListenAndServe(":8081", r)
-
-}
-
-// make this connect to a sqlite database, or w/e db
-// might need to make this return an error later too
-func ConnectToDatabase() *gorm.DB {
-
-	// STUB, NEED TO DO THIS
-	return nil
 }
