@@ -26,7 +26,6 @@ func (c *rewardpt_noRepository) Create(rewardpt_no model.Rewardpt_no) (model.Rew
 }
 
 func (c *rewardpt_noRepository) Edit(rewardpt_no model.Rewardpt_no) (model.Rewardpt_no, error) {
-
-	// stub
-	return model.Rewardpt_no{}, nil
+	err := c.db.Where("membershipID = ?", rewardpt_no.MembershipID).Updates(&rewardpt_no).Error
+	return rewardpt_no, err
 }

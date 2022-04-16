@@ -63,6 +63,20 @@ func (c *shipment) Create() http.HandlerFunc {
 }
 
 func (c *shipment) Edit() http.HandlerFunc {
-	// stubs
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Printf("unable to read body: %v", err)
+			return
+		}
+		var shipment model.Shipment
+		err = json.Unmarshal(body, &shipment)
+		if err != nil {
+			fmt.Printf("unable to unmarshal into shipment: %v", err)
+			return
+		}
+
+		shipment, _ = c.repo.Edit(shipment)
+		w.Write([]byte(fmt.Sprintf("created shipment with ID: %v", shipment.ID)))
+	}
 }

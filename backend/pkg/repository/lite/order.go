@@ -21,12 +21,13 @@ func (c *orderRepository) Get() ([]model.Order, error) {
 	return order, err
 }
 func (c *orderRepository) Create(order model.Order) (model.Order, error) {
-	err := c.db.Save(&order).Error
+	c.db.Save(&order)
+	order.OrderNumber = order.ID
+	err := c.db.Updates(&order).Error
 	return order, err
 }
 
 func (c *orderRepository) Edit(order model.Order) (model.Order, error) {
-
-	// stub
-	return model.Order{}, nil
+	err := c.db.Where("order_no = ?", order.OrderNumber).Updates(&order).Error
+	return order, err
 }

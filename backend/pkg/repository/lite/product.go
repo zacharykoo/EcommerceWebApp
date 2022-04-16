@@ -21,12 +21,13 @@ func (c *productRepository) Get() ([]model.Product, error) {
 	return product, err
 }
 func (c *productRepository) Create(product model.Product) (model.Product, error) {
-	err := c.db.Save(&product).Error
+	c.db.Save(&product)
+	product.ItemNumber = product.ID
+	err := c.db.Updates(&product).Error
 	return product, err
 }
 
 func (c *productRepository) Edit(product model.Product) (model.Product, error) {
-
-	// stub
-	return model.Product{}, nil
+	err := c.db.Where("item_no = ?", product.ItemNumber).Updates(&product).Error
+	return product, err
 }

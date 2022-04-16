@@ -63,6 +63,20 @@ func (c *shoppingCart) Create() http.HandlerFunc {
 }
 
 func (c *shoppingCart) Edit() http.HandlerFunc {
-	// stubs
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Printf("unable to read body: %v", err)
+			return
+		}
+		var shoppingCart model.ShoppingCart
+		err = json.Unmarshal(body, &shoppingCart)
+		if err != nil {
+			fmt.Printf("unable to unmarshal into shopping cart: %v", err)
+			return
+		}
+
+		shoppingCart, _ = c.repo.Edit(shoppingCart)
+		w.Write([]byte(fmt.Sprintf("created shopping cart with ID: %v", shoppingCart.ID)))
+	}
 }

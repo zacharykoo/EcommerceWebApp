@@ -21,12 +21,13 @@ func (c *rewardsRepository) Get() ([]model.Rewards, error) {
 	return rewards, err
 }
 func (c *rewardsRepository) Create(rewards model.Rewards) (model.Rewards, error) {
-	err := c.db.Save(&rewards).Error
+	c.db.Save(&rewards)
+	rewards.Rewardpt_no = rewards.ID
+	err := c.db.Updates(&rewards).Error
 	return rewards, err
 }
 
 func (c *rewardsRepository) Edit(rewards model.Rewards) (model.Rewards, error) {
-
-	// stub
-	return model.Rewards{}, nil
+	err := c.db.Where("rewardpt_no = ?", rewards.Rewardpt_no).Updates(&rewards).Error
+	return rewards, err
 }

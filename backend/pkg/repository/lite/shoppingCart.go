@@ -21,12 +21,13 @@ func (c *shoppingCartRepository) Get() ([]model.ShoppingCart, error) {
 	return shoppingCart, err
 }
 func (c *shoppingCartRepository) Create(shoppingCart model.ShoppingCart) (model.ShoppingCart, error) {
-	err := c.db.Save(&shoppingCart).Error
+	c.db.Save(&shoppingCart)
+	shoppingCart.CartID = shoppingCart.ID
+	err := c.db.Updates(&shoppingCart).Error
 	return shoppingCart, err
 }
 
 func (c *shoppingCartRepository) Edit(shoppingCart model.ShoppingCart) (model.ShoppingCart, error) {
-
-	// stub
-	return model.ShoppingCart{}, nil
+	err := c.db.Where("cartID = ?", shoppingCart.CartID).Updates(&shoppingCart).Error
+	return shoppingCart, err
 }

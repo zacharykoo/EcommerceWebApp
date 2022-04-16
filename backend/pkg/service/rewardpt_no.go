@@ -62,6 +62,20 @@ func (c *rewardpt_no) Create() http.HandlerFunc {
 }
 
 func (c *rewardpt_no) Edit() http.HandlerFunc {
-	// stubs
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Printf("unable to read body: %v", err)
+			return
+		}
+		var rewardpt_no model.Rewardpt_no
+		err = json.Unmarshal(body, &rewardpt_no)
+		if err != nil {
+			fmt.Printf("unable to unmarshal into rewardpt_no: %v", err)
+			return
+		}
+
+		rewardpt_no, _ = c.repo.Edit(rewardpt_no)
+		w.Write([]byte(fmt.Sprintf("created rewardpt_no with ID: %v", rewardpt_no.ID)))
+	}
 }

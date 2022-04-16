@@ -60,18 +60,23 @@ func main() {
 
 	r.Handle("/api/rewardpt_no", rewardpt_noService.Get()).Methods("GET")
 	r.Handle("/api/rewardpt_no", rewardpt_noService.Create()).Methods("POST")
+	r.Handle("/api/rewardpt_no", rewardpt_noService.Edit()).Methods("PUT")
 
 	r.Handle("/api/rewards", rewardsService.Get()).Methods("GET")
 	r.Handle("/api/rewards", rewardsService.Create()).Methods("POST")
+	r.Handle("/api/rewards", rewardsService.Edit()).Methods("PUT")
 
 	r.Handle("/api/product", productService.Get()).Methods("GET")
 	r.Handle("/api/product", productService.Create()).Methods("POST")
+	r.Handle("/api/product", productService.Edit()).Methods("PUT")
 
 	r.Handle("/api/shoppingCart", shoppingCartService.Get()).Methods("GET")
 	r.Handle("/api/shoppingCart", shoppingCartService.Create()).Methods("POST")
+	r.Handle("/api/shoppingCart", shoppingCartService.Edit()).Methods("PUT")
 
 	r.Handle("/api/order", orderService.Get()).Methods("GET")
 	r.Handle("/api/order", orderService.Create()).Methods("POST")
+	r.Handle("/api/order", orderService.Edit()).Methods("PUT")
 
 	r.Handle("/api/coupon", couponService.Get()).Methods("GET")
 	r.Handle("/api/coupon", couponService.Create()).Methods("POST")
@@ -83,6 +88,7 @@ func main() {
 
 	r.Handle("/api/shipment", shipmentService.Get()).Methods("GET")
 	r.Handle("/api/shipment", shipmentService.Create()).Methods("POST")
+	r.Handle("/api/shipment", shipmentService.Edit()).Methods("PUT")
 
 	fmt.Println("Serving on :8081...")
 	http.ListenAndServe(":8081", r)

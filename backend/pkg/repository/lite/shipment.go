@@ -21,12 +21,13 @@ func (c *shipmentRepository) Get() ([]model.Shipment, error) {
 	return shipment, err
 }
 func (c *shipmentRepository) Create(shipment model.Shipment) (model.Shipment, error) {
-	err := c.db.Save(&shipment).Error
+	c.db.Save(&shipment)
+	shipment.ShipmentID = shipment.ID
+	err := c.db.Updates(&shipment).Error
 	return shipment, err
 }
 
 func (c *shipmentRepository) Edit(shipment model.Shipment) (model.Shipment, error) {
-
-	// stub
-	return model.Shipment{}, nil
+	err := c.db.Where("shipmentID = ?", shipment.ShipmentID).Updates(&shipment).Error
+	return shipment, err
 }
