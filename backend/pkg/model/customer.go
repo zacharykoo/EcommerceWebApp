@@ -10,5 +10,5 @@ type Customer struct {
 	Address      string `gorm:"column:address" json:"address"`
 	Preference   string `gorm:"column:preference" json:"preference"`
 	Birthday     string `gorm:"column:birthday" json:"birthday"`
-	MembershipID string `gorm:"column:membershipID" json:"membershipID"`
+	MembershipID uint   `gorm:"column:membershipID" json:"membershipID"`
 }

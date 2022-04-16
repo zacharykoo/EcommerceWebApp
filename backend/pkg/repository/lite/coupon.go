@@ -21,12 +21,13 @@ func (c *couponRepository) Get() ([]model.Coupon, error) {
 	return coupon, err
 }
 func (c *couponRepository) Create(coupon model.Coupon) (model.Coupon, error) {
-	err := c.db.Save(&coupon).Error
+	c.db.Save(&coupon)
+	coupon.CouponID = coupon.ID
+	err := c.db.Updates(&coupon).Error
 	return coupon, err
 }
 
 func (c *couponRepository) Edit(coupon model.Coupon) (model.Coupon, error) {
-
-	// stub
-	return model.Coupon{}, nil
+	err := c.db.Where("membershipID = ?", coupon.CouponID).Updates(&coupon).Error
+	return coupon, err
 }

@@ -14,9 +14,9 @@ import (
 func TestCreateCustomer(t *testing.T) {
 
 	customer := model.Customer{
-		FirstName:   "zachary ",
-		LastName:    "koo",
-		PhoneNumber: "123-456-7891",
+		FirstName:   "John2",
+		LastName:    "Smith2",
+		PhoneNumber: "123-456-0000",
 	}
 	b, err := json.Marshal(customer)
 
@@ -35,8 +35,38 @@ func TestCreateCustomer(t *testing.T) {
 	}
 }
 
+func TestUpdateCustomer(t *testing.T) {
+
+	customer := model.Customer{
+		FirstName:    "JohnEdit",
+		LastName:     "SmithEdit",
+		PhoneNumber:  "123-456-Edit",
+		MembershipID: 4,
+	}
+	b, err := json.Marshal(customer)
+
+	if err != nil {
+		t.Fatalf("unable to marshal customer: %v", err)
+	}
+
+	reader := bytes.NewReader(b)
+	req, err := http.NewRequest(http.MethodPut, "http://localhost:8081/api/customer", reader)
+	if err != nil {
+		t.Fatalf("unable to request put method for customer: %v", err)
+	}
+	req.Header.Set("Content-Type", "application/json; charset=utf-8")
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		t.Fatalf("unable to create request: %v", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Fatalf("status code was not OK, we got: %v", resp.StatusCode)
+	}
+}
+
 func TestGetCustomerWithID(t *testing.T) {
-	membershipID := 0
+	membershipID := 4
 	url := fmt.Sprintf("http://localhost:8081/api/customer?membershipID=%d", membershipID)
 
 	resp, err := http.Get(url)

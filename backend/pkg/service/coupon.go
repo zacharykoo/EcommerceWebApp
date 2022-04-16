@@ -63,6 +63,20 @@ func (c *coupon) Create() http.HandlerFunc {
 }
 
 func (c *coupon) Edit() http.HandlerFunc {
-	// stubs
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Printf("unable to read body: %v", err)
+			return
+		}
+		var coupon model.Coupon
+		err = json.Unmarshal(body, &coupon)
+		if err != nil {
+			fmt.Printf("unable to unmarshal into customer: %v", err)
+			return
+		}
+
+		coupon, _ = c.repo.Edit(coupon)
+		w.Write([]byte(fmt.Sprintf("created customer with ID: %v", coupon.ID)))
+	}
 }
