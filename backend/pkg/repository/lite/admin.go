@@ -21,12 +21,13 @@ func (c *adminRepository) Get() ([]model.Admin, error) {
 	return admin, err
 }
 func (c *adminRepository) Create(admin model.Admin) (model.Admin, error) {
-	err := c.db.Save(&admin).Error
+	c.db.Save(&admin)
+	admin.AdminID = admin.ID
+	err := c.db.Updates(&admin).Error
 	return admin, err
 }
 
 func (c *adminRepository) Edit(admin model.Admin) (model.Admin, error) {
-
-	// stub
-	return model.Admin{}, nil
+	err := c.db.Where("adminID = ?", admin.AdminID).Updates(&admin).Error
+	return admin, err
 }
