@@ -52,17 +52,31 @@ func (c *admin) Create() http.HandlerFunc {
 		var admin model.Admin
 		err = json.Unmarshal(body, &admin)
 		if err != nil {
-			fmt.Printf("unable to unmarshal into rewards: %v", err)
+			fmt.Printf("unable to unmarshal into admin: %v", err)
 			return
 		}
 
 		admin, _ = c.repo.Create(admin)
 		admin.AdminID = admin.ID
-		w.Write([]byte(fmt.Sprintf("created rewards with No: %v", admin.ID)))
+		w.Write([]byte(fmt.Sprintf("created admin with No: %v", admin.ID)))
 	}
 }
 
 func (c *admin) Edit() http.HandlerFunc {
-	// stubs
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Printf("unable to read body: %v", err)
+			return
+		}
+		var admin model.Admin
+		err = json.Unmarshal(body, &admin)
+		if err != nil {
+			fmt.Printf("unable to unmarshal into admin: %v", err)
+			return
+		}
+
+		admin, _ = c.repo.Edit(admin)
+		w.Write([]byte(fmt.Sprintf("created admin with ID: %v", admin.ID)))
+	}
 }

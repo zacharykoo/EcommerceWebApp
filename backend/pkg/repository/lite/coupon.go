@@ -28,6 +28,6 @@ func (c *couponRepository) Create(coupon model.Coupon) (model.Coupon, error) {
 }
 
 func (c *couponRepository) Edit(coupon model.Coupon) (model.Coupon, error) {
-	err := c.db.Where("membershipID = ?", coupon.CouponID).Updates(&coupon).Error
+	err := c.db.Where("couponID = ?", coupon.CouponID).Updates(&coupon).Error
 	return coupon, err
 }
