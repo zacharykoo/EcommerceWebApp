@@ -2,8 +2,8 @@
 package database
 
 import (
+	"github.com/glebarez/sqlite"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
@@ -15,6 +15,11 @@ func ConnectSQLite() (*gorm.DB, error) {
 func MigrateTables(db *gorm.DB) error {
 	err := db.AutoMigrate(
 		model.Customer{},
+		model.Rewardpt_no{},
+		model.Rewards{},
+		model.Product{},
+		model.ShoppingCart{},
+		model.Order{},
 	)
 	return err
 }

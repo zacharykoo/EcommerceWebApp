@@ -5,7 +5,7 @@ Method: Get
 Input: membershipID
 Output [{
     "fn": string
-    "ls": string
+    "ln": string
     "phone_no": int
     "address": string
     "preference": string
@@ -18,7 +18,7 @@ URL: https://localhost:3001/api/customer
 Method: POST
 Input: [{
     "fn": string
-    "ls": string
+    "ln": string
     "phone_no": int
     "address": string
     "preference": string
@@ -33,7 +33,7 @@ Method: PUT
 Input: [{
     "membershipID": int
     "fn": string
-    "ls": string
+    "ln": string
     "phone_no": int
     "address": string
     "preference": string
@@ -42,7 +42,7 @@ Input: [{
 Output: [{
     "membershipID": int
     "fn": string
-    "ls": string
+    "ln": string
     "phone_no": int
     "address": string
     "preference": string
@@ -186,6 +186,7 @@ URL: http://localhost:3001/api/order
 Method: Get
 Input: order_no
 Output: [{
+    "membershipID": int
     "phone_no": int
     "email": string
     "city": string
@@ -200,6 +201,7 @@ URL: http://localhost:3001/api/order/{membershipID}
 Method: Get
 Input: membershipID
 Output: [{
+    "order_no": int
     "phone_no": int
     "email": string
     "city": string

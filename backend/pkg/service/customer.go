@@ -32,7 +32,13 @@ func (c *customer) Get() http.HandlerFunc {
 			fmt.Printf("unable to marshal customer: %v", err)
 			w.Write([]byte("error getting customer"))
 		}
-		w.Write(b)
+
+		w.Header().Set("Content-Type", "application/json")
+		_, err = w.Write(b)
+		if err != nil {
+			fmt.Printf("Unable to send marshal customer: %v", err)
+			w.Write([]byte("error cannot send customer"))
+		}
 	}
 }
 
@@ -50,7 +56,7 @@ func (c *customer) Create() http.HandlerFunc {
 			return
 		}
 
-		customer, err = c.repo.Create(customer)
+		customer, _ = c.repo.Create(customer)
 		w.Write([]byte(fmt.Sprintf("created customer with ID: %v", customer.ID)))
 	}
 }

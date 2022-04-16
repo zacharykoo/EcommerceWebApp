@@ -29,10 +29,40 @@ func main() {
 	customerRepository := lite.GetCustomerRepository(db)
 	customerService := service.GetCustomerService(&customerRepository)
 
+	rewardpt_noRepository := lite.GetRewardpt_noRepository(db)
+	rewardpt_noService := service.GetRewardpt_noService(&rewardpt_noRepository)
+
+	rewardsRepository := lite.GetRewardsRepository(db)
+	rewardsService := service.GetRewardsService(&rewardsRepository)
+
+	productRepository := lite.GetProductRepository(db)
+	productService := service.GetProductService(&productRepository)
+
+	shoppingCartRepository := lite.GetShoppingCartRepository(db)
+	shoppingCartService := service.GetShoppingCartService(&shoppingCartRepository)
+
+	orderRepository := lite.GetOrderRepository(db)
+	orderService := service.GetOrderService(&orderRepository)
+
 	r := mux.NewRouter()
 
 	r.Handle("/api/customer", customerService.Get()).Methods("GET")
 	r.Handle("/api/customer", customerService.Create()).Methods("POST")
+
+	r.Handle("/api/rewardpt_no", rewardpt_noService.Get()).Methods("GET")
+	r.Handle("/api/rewardpt_no", rewardpt_noService.Create()).Methods("POST")
+
+	r.Handle("/api/rewards", rewardsService.Get()).Methods("GET")
+	r.Handle("/api/rewards", rewardsService.Create()).Methods("POST")
+
+	r.Handle("/api/product", productService.Get()).Methods("GET")
+	r.Handle("/api/product", productService.Create()).Methods("POST")
+
+	r.Handle("/api/shoppingCart", shoppingCartService.Get()).Methods("GET")
+	r.Handle("/api/shoppingCart", shoppingCartService.Create()).Methods("POST")
+
+	r.Handle("/api/order", orderService.Get()).Methods("GET")
+	r.Handle("/api/order", orderService.Create()).Methods("POST")
 
 	fmt.Println("Serving on :8081...")
 	http.ListenAndServe(":8081", r)

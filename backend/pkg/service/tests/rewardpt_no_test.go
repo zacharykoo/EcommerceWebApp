@@ -9,22 +9,21 @@ import (
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 )
 
-func TestCreateCustomer(t *testing.T) {
+func TestCreateRewardpt_no(t *testing.T) {
 
-	customer := model.Customer{
-		FirstName:   "zachary ",
-		LastName:    "koo",
-		PhoneNumber: "123-456-7891",
+	rewardpt_no := model.Rewardpt_no{
+		Reward_no:    1,
+		MembershipID: 1,
 	}
-	b, err := json.Marshal(customer)
+	b, err := json.Marshal(rewardpt_no)
 
 	if err != nil {
-		t.Fatalf("unable to marshal customer: %v", err)
+		t.Fatalf("unable to marshal rewardpt_no: %v", err)
 	}
 
 	reader := bytes.NewReader(b)
 
-	resp, err := http.Post("http://localhost:8081/api/customer", "application/json", reader)
+	resp, err := http.Post("http://localhost:8081/api/rewardpt_no", "application/json", reader)
 	if err != nil {
 		t.Fatalf("unable to create request: %v", err)
 	}

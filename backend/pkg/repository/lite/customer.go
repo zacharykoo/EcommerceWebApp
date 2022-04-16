@@ -15,10 +15,10 @@ func GetCustomerRepository(db *gorm.DB) customerRepository {
 	}
 }
 
-func (c *customerRepository) Get() (model.Customer, error) {
+func (c *customerRepository) Get() ([]model.Customer, error) {
 	var customers []model.Customer
 	err := c.db.Find(&customers).Error
-	return model.Customer{}, err
+	return customers, err
 }
 func (c *customerRepository) Create(customer model.Customer) (model.Customer, error) {
 	err := c.db.Save(&customer).Error
