@@ -20,13 +20,15 @@ func (c *customerRepository) Get() ([]model.Customer, error) {
 	err := c.db.Find(&customers).Error
 	return customers, err
 }
+
 func (c *customerRepository) Create(customer model.Customer) (model.Customer, error) {
-	err := c.db.Save(&customer).Error
+	c.db.Save(&customer)
+	customer.MembershipID = customer.ID
+	err := c.db.Updates(&customer).Error
 	return customer, err
 }
 
 func (c *customerRepository) Edit(customer model.Customer) (model.Customer, error) {
-
-	// stub
-	return model.Customer{}, nil
+	err := c.db.Where("membershipID = ?", customer.MembershipID).Updates(&customer).Error
+	return customer, err
 }

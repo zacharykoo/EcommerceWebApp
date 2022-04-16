@@ -62,6 +62,20 @@ func (c *customer) Create() http.HandlerFunc {
 }
 
 func (c *customer) Edit() http.HandlerFunc {
-	// stubs
-	return nil
+	return func(w http.ResponseWriter, r *http.Request) {
+		body, err := ioutil.ReadAll(r.Body)
+		if err != nil {
+			fmt.Printf("unable to read body: %v", err)
+			return
+		}
+		var customer model.Customer
+		err = json.Unmarshal(body, &customer)
+		if err != nil {
+			fmt.Printf("unable to unmarshal into customer: %v", err)
+			return
+		}
+
+		customer, _ = c.repo.Edit(customer)
+		w.Write([]byte(fmt.Sprintf("created customer with ID: %v", customer.ID)))
+	}
 }

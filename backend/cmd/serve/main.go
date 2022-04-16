@@ -56,6 +56,7 @@ func main() {
 
 	r.Handle("/api/customer", customerService.Get()).Methods("GET")
 	r.Handle("/api/customer", customerService.Create()).Methods("POST")
+	r.Handle("/api/customer", customerService.Edit()).Methods("PUT")
 
 	r.Handle("/api/rewardpt_no", rewardpt_noService.Get()).Methods("GET")
 	r.Handle("/api/rewardpt_no", rewardpt_noService.Create()).Methods("POST")
