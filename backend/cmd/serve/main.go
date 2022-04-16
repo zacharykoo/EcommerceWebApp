@@ -75,6 +75,7 @@ func main() {
 
 	r.Handle("/api/coupon", couponService.Get()).Methods("GET")
 	r.Handle("/api/coupon", couponService.Create()).Methods("POST")
+	r.Handle("/api/coupon", couponService.Create()).Methods("PUT")
 
 	r.Handle("/api/admin", adminService.Get()).Methods("GET")
 	r.Handle("/api/admin", adminService.Create()).Methods("POST")
