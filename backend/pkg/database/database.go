@@ -20,6 +20,9 @@ func MigrateTables(db *gorm.DB) error {
 		model.Product{},
 		model.ShoppingCart{},
 		model.Order{},
+		model.Coupon{},
+		model.Admin{},
+		model.Shipment{},
 	)
 	return err
 }

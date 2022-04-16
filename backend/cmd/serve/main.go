@@ -12,7 +12,6 @@ import (
 
 func main() {
 	fmt.Println("Hello world")
-	//service.GetCustomerService()
 
 	db, err := database.ConnectSQLite()
 	if err != nil {
@@ -44,6 +43,15 @@ func main() {
 	orderRepository := lite.GetOrderRepository(db)
 	orderService := service.GetOrderService(&orderRepository)
 
+	couponRepository := lite.GetCouponRepository(db)
+	couponService := service.GetCouponService(&couponRepository)
+
+	adminRepository := lite.GetAdminRepository(db)
+	adminService := service.GetAdminService(&adminRepository)
+
+	shipmentRepository := lite.GetShipmentRepository(db)
+	shipmentService := service.GetShipmentService(&shipmentRepository)
+
 	r := mux.NewRouter()
 
 	r.Handle("/api/customer", customerService.Get()).Methods("GET")
@@ -63,6 +71,15 @@ func main() {
 
 	r.Handle("/api/order", orderService.Get()).Methods("GET")
 	r.Handle("/api/order", orderService.Create()).Methods("POST")
+
+	r.Handle("/api/coupon", couponService.Get()).Methods("GET")
+	r.Handle("/api/coupon", couponService.Create()).Methods("POST")
+
+	r.Handle("/api/admin", adminService.Get()).Methods("GET")
+	r.Handle("/api/admin", adminService.Create()).Methods("POST")
+
+	r.Handle("/api/shipment", shipmentService.Get()).Methods("GET")
+	r.Handle("/api/shipment", shipmentService.Create()).Methods("POST")
 
 	fmt.Println("Serving on :8081...")
 	http.ListenAndServe(":8081", r)

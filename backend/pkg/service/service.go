@@ -37,3 +37,21 @@ type OrderService interface {
 	Create() http.HandlerFunc
 	Edit() http.HandlerFunc
 }
+
+type CouponService interface {
+	Get() http.HandlerFunc
+	Create() http.HandlerFunc
+	Edit() http.HandlerFunc
+}
+
+type AdminService interface {
+	Get() http.HandlerFunc
+	Create() http.HandlerFunc
+	Edit() http.HandlerFunc
+}
+
+type ShipmentService interface {
+	Get() http.HandlerFunc
+	Create() http.HandlerFunc
+	Edit() http.HandlerFunc
+}

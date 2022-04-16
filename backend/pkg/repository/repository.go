@@ -37,3 +37,21 @@ type OrderRepository interface {
 	Create(model.Order) (model.Order, error)
 	Edit(model.Order) (model.Order, error)
 }
+
+type CouponRepository interface {
+	Get() ([]model.Coupon, error)
+	Create(model.Coupon) (model.Coupon, error)
+	Edit(model.Coupon) (model.Coupon, error)
+}
+
+type AdminRepository interface {
+	Get() ([]model.Admin, error)
+	Create(model.Admin) (model.Admin, error)
+	Edit(model.Admin) (model.Admin, error)
+}
+
+type ShipmentRepository interface {
+	Get() ([]model.Shipment, error)
+	Create(model.Shipment) (model.Shipment, error)
+	Edit(model.Shipment) (model.Shipment, error)
+}
