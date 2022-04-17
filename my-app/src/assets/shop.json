@@ -1,0 +1,12 @@
+
+products: [
+	{
+		"id": "-1",
+	    "name": "productName",
+	    "description": "productDesc",
+	    "price": "productPrice",
+	    "imageUrl": "productImg"
+	}
+
+
+] 

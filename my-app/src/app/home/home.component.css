@@ -1,0 +1,23 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.small-container {
+	grid-column-start: 2;
+	grid-row-start: 3;
+}
+
+.row {
+	display: inline-flex;
+}
+
+.item {
+	margin-right: 5px;
+}
+
+.item img {
+	max-height: 150px;
+}
+
+

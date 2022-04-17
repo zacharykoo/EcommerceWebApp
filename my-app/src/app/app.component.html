@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ecommerce</title>
+  <link rel="stylesheet" type="text/css" href="app.component.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+          <img src="assets/images/EcommerceLogo.png">
+    </div>
+    <!-- <h1>Ecommerce Store</h1> -->
+  </div>
+  <div>
+    <link rel="stylesheet" type="text/css" href="">
+
+  </div>
+  
+
+  <div class="container">
+    <div class="cart">
+      <a routerLink="/cart" routerLinkActive="active"><fa-icon [icon]="faCartShopping" size="4x"></fa-icon></a>
+    </div>
+    <app-navbar></app-navbar>
+    <div class="small-container">
+      <!-- <mat-toolbar color="primary">
+        <button mat-button routerLink="/home">Home</button>
+        <button mat-button routerLink="/shop">Shop</button>
+      </mat-toolbar> -->
+      <router-outlet></router-outlet>
+    </div>
+
+    <div class="bottom-row">
+      <div class="bottom-item">
+        <p>Shop</p>
+        <nav>
+          <ul>
+            <li><a>Category1</a></li>
+            <li><a>Category2</a></li>
+            <li><a>Category3</a></li>
+            <li><a>Category4</a></li>
+          </ul>
+        </nav>
+
+      </div>
+      
+      <div class="bottom-item">
+        <p>Help</p>
+        <nav>
+          <ul>
+            <li><a>Category1</a></li>
+            <li><a>Category2</a></li>
+            <li><a>Category3</a></li>
+            <li><a>Category4</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="bottom-item">
+        <p>About Us</p>
+        <nav>
+          <ul>
+            <li><a>Category1</a></li>
+            <li><a>Category2</a></li>
+            <li><a>Category3</a></li>
+            <li><a>Category4</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
