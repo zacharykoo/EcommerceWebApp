@@ -12,9 +12,11 @@ import (
 func TestCreateProduct(t *testing.T) {
 
 	product := model.Product{
-		Price:        69,
-		Category:     "Hardware",
-		ProductImage: "someImage2",
+		Price:        10,
+		ItemName:     "The Ordinary",
+		Description:  "Apply to face for shinny forehead",
+		Category:     "Beauty",
+		ProductImage: "https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAyNzI&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600",
 	}
 	b, err := json.Marshal(product)
 
