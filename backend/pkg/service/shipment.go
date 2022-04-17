@@ -22,7 +22,6 @@ func GetShipmentService(repo repository.ShipmentRepository) ShipmentService {
 
 func (c *shipment) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		someshipment, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get shipment: %v", err)
@@ -45,7 +44,6 @@ func (c *shipment) Get() http.HandlerFunc {
 
 func (c *shipment) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -66,7 +64,6 @@ func (c *shipment) Create() http.HandlerFunc {
 
 func (c *shipment) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

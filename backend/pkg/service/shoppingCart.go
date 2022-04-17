@@ -22,7 +22,6 @@ func GetShoppingCartService(repo repository.ShoppingCartRepository) ShoppingCart
 
 func (c *shoppingCart) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		someShoppingCart, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get shopping cart: %v", err)
@@ -45,7 +44,6 @@ func (c *shoppingCart) Get() http.HandlerFunc {
 
 func (c *shoppingCart) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -66,7 +64,6 @@ func (c *shoppingCart) Create() http.HandlerFunc {
 
 func (c *shoppingCart) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

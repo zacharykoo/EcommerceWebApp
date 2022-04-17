@@ -90,6 +90,15 @@ func main() {
 	r.Handle("/api/shipment", shipmentService.Create()).Methods("POST")
 	r.Handle("/api/shipment", shipmentService.Edit()).Methods("PUT")
 
+	r.Use(corsMiddleware)
+
 	fmt.Println("Serving on :8081...")
 	http.ListenAndServe(":8081", r)
+}
+
+func corsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		next.ServeHTTP(w, r)
+	})
 }
