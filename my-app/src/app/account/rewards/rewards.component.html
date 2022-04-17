@@ -1,0 +1,15 @@
+
+<mat-spinner *ngIf="rewardPointMembers.length === 0"></mat-spinner>
+
+<mat-card *ngFor="let rewardPointMember of rewardPointMembers">
+	<!-- <div *ngIf -->
+		<mat-card-title>{{rewardPointMember.reward_no}}</mat-card-title>
+</mat-card>
+
+<h2>Reward point history</h2>
+<mat-spinner *ngIf="rewards.length === 0"></mat-spinner>
+<mat-card *ngFor="let rewardHistory of rewards">
+	<mat-card-title>{{rewardHistory.product_purchased}}</mat-card-title>
+	<mat-card-subtitle>Points {{rewardHistory.point_awarded}}</mat-card-subtitle>
+	<mat-card-subtitle>Date {{rewardHistory.awarded_date}}</mat-card-subtitle>
+</mat-card>

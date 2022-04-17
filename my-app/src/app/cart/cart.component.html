@@ -1,10 +1,34 @@
 <div class="small-container">
 
 	<h2>Cart</h2>
+	<mat-spinner *ngIf="cart.length === 0"></mat-spinner>
+
+    <mat-card *ngFor="let items of organizedCart">
+    	<mat-card-title>{{items.productName}}</mat-card-title>
+    	<mat-card-subtitle>Quantity {{items.productQuantity}} Price: $ {{items.productPrice}}</mat-card-subtitle>
+    	<mat-card-subtitle></mat-card-subtitle>
+    </mat-card>
 	
 	<label>Coupons/Discount Code</label>
-	<input type="text" name="">
+	<input type="text" id="inputCoupon">
+	<button (click)="checkCoupons()">Apply</button>
+	<span id="couponIsValid"></span>
+
+	<span>Total: {{calculateTotal()}}</span>
+
 	<button>Checkout</button>
 
-	<h2>Order history</h2>
+	<h2>Current Orders</h2>
+	<mat-card *ngFor="let order of orders">
+    	<mat-card-title>{{order.order_no}}</mat-card-title>
+    	<mat-card-subtitle>Shipped To {{order.street}} {{order.city}} {{order.state}} {{order.zip}}</mat-card-subtitle>
+    	<mat-card-subtitle>Customer contact: {{order.email}} {{order.phone_no}}</mat-card-subtitle>
+    </mat-card>
+
+    <h2>Shipped Orders</h2>
+    <mat-card *ngFor="let shipmentOrder of shipmentOrders">
+    	<mat-card-title>{{shipmentOrder.trackingInfo}}</mat-card-title>
+    	<mat-card-subtitle>Expected Arrival: {{shipmentOrder.expectedArrival}}</mat-card-subtitle>
+    	<mat-card-subtitle>Transport type: {{shipmentOrder.transportType}}</mat-card-subtitle>
+    </mat-card>
 </div>

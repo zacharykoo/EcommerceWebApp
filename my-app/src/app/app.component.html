@@ -36,7 +36,7 @@
         <p>Shop</p>
         <nav>
           <ul>
-            <li><a>Category1</a></li>
+            <button mat-button  routerLink="/shop" routerLinkActive="active">Shop</button>
             <li><a>Category2</a></li>
             <li><a>Category3</a></li>
             <li><a>Category4</a></li>
@@ -46,13 +46,11 @@
       </div>
       
       <div class="bottom-item">
-        <p>Help</p>
+        <p>Account</p>
         <nav>
           <ul>
-            <li><a>Category1</a></li>
-            <li><a>Category2</a></li>
-            <li><a>Category3</a></li>
-            <li><a>Category4</a></li>
+            <li><button mat-button  routerLink="/account/login" routerLinkActive="active">Login</button></li>
+            <li><button mat-button  routerLink="/account/manage" routerLinkActive="active">Manage</button></li>
           </ul>
         </nav>
       </div>

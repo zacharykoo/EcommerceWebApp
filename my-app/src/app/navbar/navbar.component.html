@@ -4,7 +4,28 @@
 	  <button mat-button routerLink="/home" routerLinkActive="active">Home</button>
 	  <button mat-button  routerLink="/shop" routerLinkActive="active">Shop</button>
 	  <button mat-button  routerLink="/about" routerLinkActive="active">About</button>
-	  <button mat-button  routerLink="/account" routerLinkActive="active">Account</button>
+	  <button mat-button  routerLink="/account" routerLinkActive="active" [matMenuTriggerFor]="menu" 
+    #menuTrigger="matMenuTrigger" (mouseenter)="menuTrigger.openMenu()">Account</button>
 	<!-- </ul>
 	</nav> -->
 </div>
+<mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item routerLink="/account/loginsignup" routerLinkActive="active">
+       <mat-icon>person</mat-icon>
+       <span>Sign Up/Log In</span>
+     </button>
+     <button mat-menu-item routerLink="/account/manage" routerLinkActive="active">
+       <mat-icon>settings</mat-icon>
+       <span>Manage Account</span>
+     </button>
+     <button mat-menu-item routerLink="/account/rewards" routerLinkActive="active">
+       <mat-icon>card_giftcard</mat-icon>
+       <span>Reward Points</span>
+     </button>
+     <button mat-menu-item>
+       <mat-icon>exit_to_app</mat-icon>
+       <span>Logout</span>
+     </button>
+    </span>
+</mat-menu>
