@@ -5,9 +5,14 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
+)
+
+const (
+	KeyMembershipID = "membershipID"
 )
 
 type customer struct {
@@ -27,7 +32,20 @@ func enableCors(w *http.ResponseWriter) {
 func (c *customer) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		enableCors(&w)
-		someCustomer, err := c.repo.Get()
+
+		var membershipID int
+		var err error
+		membershipIDString, ok := r.URL.Query()[KeyMembershipID]
+		if !ok {
+			membershipID = 0
+		} else {
+			membershipID, err = strconv.Atoi(membershipIDString[0])
+			if err != nil {
+				fmt.Printf("unable to parse membershipID: %v", err)
+				w.Write([]byte("error getting customer"))
+			}
+		}
+		someCustomer, err := c.repo.Get(membershipID)
 		if err != nil {
 			fmt.Printf("unable to get customer: %v", err)
 			w.Write([]byte("error getting customer"))
