@@ -20,8 +20,13 @@ func GetCustomerService(repo repository.CustomerRepository) CustomerService {
 	}
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 func (c *customer) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		someCustomer, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get customer: %v", err)

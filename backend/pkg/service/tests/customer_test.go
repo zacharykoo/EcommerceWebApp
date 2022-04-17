@@ -40,8 +40,7 @@ func TestUpdateCustomer(t *testing.T) {
 	customer := model.Customer{
 		FirstName:    "JohnEdit",
 		LastName:     "SmithEdit",
-		PhoneNumber:  "123-456-Edit",
-		MembershipID: 4,
+		MembershipID: 5,
 	}
 	b, err := json.Marshal(customer)
 
