@@ -12,9 +12,7 @@ import (
 func TestCreateShoppingCart(t *testing.T) {
 
 	shoppingCart := model.ShoppingCart{
-		Quantity:      10,
-		TotalPrice:    10000,
-		ProductsAdded: "RTX 3080",
+		ProductList: "['Iphone 15', 1, 'The Original', 5]",
 	}
 	b, err := json.Marshal(shoppingCart)
 
@@ -36,8 +34,8 @@ func TestCreateShoppingCart(t *testing.T) {
 func TestUpdateCart(t *testing.T) {
 
 	shoppingCart := model.ShoppingCart{
-		CartID:        2,
-		ProductsAdded: "Edited info",
+		CartID:      2,
+		ProductList: "Edited info",
 	}
 	b, err := json.Marshal(shoppingCart)
 
