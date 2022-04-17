@@ -1,0 +1,356 @@
+Endpoint 1:
+Description: Get customers.
+URL: http://localhost:3001/api/customer
+Method: Get
+Input: membershipID
+Output [{
+    "fn": string
+    "ln": string
+    "phone_no": int
+    "address": string
+    "preference": string
+    "birthday": date
+}]
+
+Endpoint 2:
+Description: Set customer Information.
+URL: https://localhost:3001/api/customer
+Method: POST
+Input: [{
+    "fn": string
+    "ln": string
+    "phone_no": int
+    "address": string
+    "preference": string
+    "birthday": date
+}]
+Output: membershipID
+
+Endpoint 3:
+Description: Edit customer Information.
+URL: https://localhost:3001/api/customer
+Method: PUT
+Input: [{
+    "membershipID": int
+    "fn": string
+    "ln": string
+    "phone_no": int
+    "address": string
+    "preference": string
+    "birthday": date
+}]
+Output: [{
+    "membershipID": int
+    "fn": string
+    "ln": string
+    "phone_no": int
+    "address": string
+    "preference": string
+    "birthday": date
+}]
+
+Endpoint 4:
+Description: Get customer's reward point number.
+URL: http://localhost:3001/api/rewardpt_no
+Method: Get
+Input: membershipID
+Output: [{
+    "reward_no": int
+}]
+
+Endpoint 5:
+Description: Set user Information.
+URL: https://localhost:3001/api/rewardpt_no
+Method: POST
+Input: [{
+    "membershipID": int
+}]
+Output:reward_no
+
+Endpoint 6:
+Description: Edit user Information.
+URL: https://localhost:3001/api/rewardpt_no
+Method: PUT
+Input: [{
+    "membershipID": int
+    "reward_no": int
+}]
+Output: [{
+    "membershipID": int
+    "reward_no": int
+}]
+
+Endpoint 7:
+Description: Get customer's reward point information.
+URL: http://localhost:3001/api/rewards
+Method: Get
+Input: rewardpt_no
+Output: [{
+    "point_awarded": int
+    "awarded_date": date
+    "product_purchased": string
+}]
+
+Endpoint 8:
+Description: Set customer's reward point information.
+URL: http://localhost:3001/api/rewards
+Method: POST
+Input: [{
+    "point_awarded": int
+    "awarded_date": date
+    "product_purchased": string
+}]
+Output: rewardpt_no
+
+Endpoint 9:
+Description: Get product information.
+URL: http://localhost:3001/api/product
+Method: Get
+Input: item_no
+Output: [{
+    "price": int
+    "category": string
+    "product_image": string
+}]
+
+Endpoint 10:
+Description: Set product information.
+URL: http://localhost:3001/api/product
+Method: POST
+Input: [{
+    "price": int
+    "category": string
+    "product_image": string
+}]
+Output: item_no
+
+Endpoint 11:
+Description: Edit product information.
+URL: http://localhost:3001/api/product
+Method: PUT
+Input: [{
+    "item_no": int
+    "price": int
+    "category": string
+    "product_image": string
+}]
+Output: [{
+    "item_no": int
+    "price": int
+    "category": string
+    "product_image": string
+}]
+
+Endpoint 12:
+Description: Get shopping_cart information.
+URL: http://localhost:3001/api/shopping_cart
+Method: Get
+Input: cart_ID
+Output: [{
+    "quantity": int
+    "total_price": int
+    "products_added": []string
+}]
+
+Endpoint 13:
+Description: Set shopping_cart information.
+URL: http://localhost:3001/api/shopping_cart
+Method: POST
+Input: [{
+    "quantity": int
+    "total_price": int
+    "products_added": []string
+}]
+Output: cart_ID
+
+Endpoint 14:
+Description: Edit shopping_cart information.
+URL: http://localhost:3001/api/shopping_cart
+Method: PUT
+Input: [{
+    "cart_ID": int
+    "quantity": int
+    "total_price": int
+    "products_added": []string
+}]
+Output: [{
+    "cart_ID": int
+    "quantity": int
+    "total_price": int
+    "products_added": []string
+}]
+
+Endpoint 15:
+Description: Get order information.
+URL: http://localhost:3001/api/order
+Method: Get
+Input: order_no
+Output: [{
+    "membershipID": int
+    "phone_no": int
+    "email": string
+    "city": string
+    "state": string
+    "street": string
+    "zip": string
+}]
+
+Endpoint 16:
+Description: Get order information by membershipID.
+URL: http://localhost:3001/api/order/{membershipID}
+Method: Get
+Input: membershipID
+Output: [{
+    "order_no": int
+    "phone_no": int
+    "email": string
+    "city": string
+    "state": string
+    "street": string
+    "zip": string
+}]
+
+Endpoint 17:
+Description: Set order information.
+URL: http://localhost:3001/api/order
+Method: POST
+Input: [{
+    "phone_no": int
+    "email": string
+    "city": string
+    "state": string
+    "street": string
+    "zip": string
+    "membershipID": int
+}]
+Output: order_no
+
+Endpoint 18:
+Description: Edit order information.
+URL: http://localhost:3001/api/order
+Method: PUT
+Input: [{
+    "order_no": int
+    "phone_no": int
+    "email": string
+    "city": string
+    "state": string
+    "street": string
+    "zip": string
+    "membershipID": int
+}]
+Output: [{
+    "order_no": int
+    "phone_no": int
+    "email": string
+    "city": string
+    "state": string
+    "street": string
+    "zip": string
+    "membershipID": int
+}]
+
+Endpoint 19:
+Description: Get coupons.
+URL: http://localhost:3001/api/coupons
+Method: Get
+Input: coupon_ID
+Output: [{
+    "coupon_info": string
+}]
+
+Endpoint 20:
+Description: Set coupons.
+URL: http://localhost:3001/api/coupons
+Method: POST
+Input: [{
+    "coupon_info": string
+}]
+Output: coupon_ID
+
+Endpoint 21:
+Description: Edit coupons.
+URL: http://localhost:3001/api/coupons
+Method: PUT
+Input: [{
+    "coupon_ID": int
+    "coupon_info": string
+}]
+Output: [{
+    "coupon_ID": int
+    "coupon_info": string
+}]
+
+Endpoint 22:
+Description: Get admin.
+URL: http://localhost:3001/api/admin
+Method: Get
+Input: admin_ID
+Output: [{
+    "name": string
+    "address": string
+}]
+
+Endpoint 23:
+Description: Set admin.
+URL: http://localhost:3001/api/admin
+Method: POST
+Input: [{
+    "name": string
+    "address": string
+}]
+Output: admin_ID
+
+Endpoint 24:
+Description: Edit admin.
+URL: http://localhost:3001/api/admin
+Method: PUT
+Input: [{
+    "admin_ID: int
+    "name": string
+    "address": string
+}]
+Output: [{
+    "admin_ID: int
+    "name": string
+    "address": string
+}]
+
+Endpoint 25:
+Description: Get shipment.
+URL: http://localhost:3001/api/shipment
+Method: Get
+Input: shipment_ID
+Output: [{
+    "tracking_info": string
+    "expected_arrival": date
+    "transport_type": string
+}]
+
+Endpoint 23:
+Description: Set shipment.
+URL: http://localhost:3001/api/shipment
+Method: POST
+Input: [{
+    "tracking_info": string
+    "expected_arrival": date
+    "transport_type": string
+}]
+Output: shipment_ID
+
+Endpoint 24:
+Description: Edit shipment.
+URL: http://localhost:3001/api/shipment
+Method: PUT
+Input: [{
+    "shipment_ID": int
+    "tracking_info": string
+    "expected_arrival": date
+    "transport_type": string
+}]
+Output: [{
+    "shipment_ID": int
+    "tracking_info": string
+    "expected_arrival": date
+    "transport_type": string
+}]
