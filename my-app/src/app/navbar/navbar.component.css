@@ -1,0 +1,28 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.navbar nav {
+	text-align: right;
+}
+
+.navbar nav ul {
+	display: inline-flex;
+	list-style-type: none;
+	background-color: #c6e2e9;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.navbar nav ul li {
+	display: inline-block;
+	margin-right: 20px;
+	font: 30px Arial, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+
+}

@@ -1,0 +1,36 @@
+<div class="small-container">
+  <h2>Featured</h2>
+  <div class="row">
+    
+    <mat-spinner *ngIf="products.length === 0"></mat-spinner>
+    <mat-card *ngFor="let product of products | slice:0:5">
+        <mat-card-header>
+          <mat-card-title>{{product.name}}</mat-card-title>
+          <mat-card-subtitle>{{product.price}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <!-- <p>{{product.description}}</p> -->
+          <img style="height:100%; width: 100%;" src="{{ product.imageUrl }}" />
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Add to Cart</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <!-- <div class="item">
+      <img src="assets/images/shopItem1.webp" alt="item1">
+      <h4 class="ItemName">Item 1</h4>
+      <p class="ItemPrice">Price</p>
+    </div>
+    <div class="item">
+      <img src="assets/images/shopItem2.webp" alt="item2">
+      <h4 class="ItemName">Item 2</h4>
+      <p class="ItemPrice">Price</p>
+    </div>
+    <div class="item">
+      <img src="assets/images/shopItem3.webp" alt="item3">
+      <h4 class="ItemName">Item 3</h4>
+      <p class="ItemPrice">Price</p>
+    </div> -->
+  </div>
+</div>
