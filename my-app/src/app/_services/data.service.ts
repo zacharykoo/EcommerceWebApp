@@ -10,7 +10,9 @@ import { catchError, retry } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-	private dataServer = "http://localhost:3000/products";
+	private dataServer = "http://localhost:8081/api/product";
+	// private dataServer = "http://localhost:3000/products";
+
 
 	constructor(private http: HttpClient) {
 	   this.getJSON().subscribe(data => {
