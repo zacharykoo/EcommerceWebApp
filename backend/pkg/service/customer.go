@@ -49,6 +49,7 @@ func (c *customer) Get() http.HandlerFunc {
 
 func (c *customer) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -68,6 +69,7 @@ func (c *customer) Create() http.HandlerFunc {
 
 func (c *customer) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

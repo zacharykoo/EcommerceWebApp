@@ -22,6 +22,7 @@ func GetOrderService(repo repository.OrderRepository) OrderService {
 
 func (c *order) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		someOrder, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get order: %v", err)
@@ -44,6 +45,7 @@ func (c *order) Get() http.HandlerFunc {
 
 func (c *order) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -64,6 +66,7 @@ func (c *order) Create() http.HandlerFunc {
 
 func (c *order) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

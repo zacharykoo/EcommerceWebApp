@@ -22,6 +22,7 @@ func GetCouponService(repo repository.CouponRepository) CouponService {
 
 func (c *coupon) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		someCoupon, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get coupon: %v", err)
@@ -44,6 +45,7 @@ func (c *coupon) Get() http.HandlerFunc {
 
 func (c *coupon) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -64,6 +66,7 @@ func (c *coupon) Create() http.HandlerFunc {
 
 func (c *coupon) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

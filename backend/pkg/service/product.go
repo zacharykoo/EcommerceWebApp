@@ -22,6 +22,7 @@ func GetProductService(repo repository.ProductRepository) ProductService {
 
 func (c *product) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		someProduct, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get product: %v", err)
@@ -44,6 +45,7 @@ func (c *product) Get() http.HandlerFunc {
 
 func (c *product) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -64,6 +66,7 @@ func (c *product) Create() http.HandlerFunc {
 
 func (c *product) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
