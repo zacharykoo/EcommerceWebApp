@@ -12,8 +12,8 @@ import (
 func TestCreateRewardpt_no(t *testing.T) {
 
 	rewardpt_no := model.Rewardpt_no{
-		Reward_no:    20,
-		MembershipID: 5,
+		Reward_no:    1,
+		MembershipID: 1,
 	}
 	b, err := json.Marshal(rewardpt_no)
 

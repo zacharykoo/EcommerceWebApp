@@ -37,7 +37,7 @@ func TestUpdateReward(t *testing.T) {
 
 	reward := model.Rewards{
 		ProductPurchased: "edited",
-		Rewardpt_no:      2,
+		Rewardpt_no:      1,
 	}
 	b, err := json.Marshal(reward)
 

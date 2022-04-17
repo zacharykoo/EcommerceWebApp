@@ -12,9 +12,9 @@ import (
 func TestCreateShipment(t *testing.T) {
 
 	shipment := model.Shipment{
-		TrackingInfo:    "All the way up Mars",
-		ExpectedArrival: "16/4/2022",
-		TransportType:   "Private Jet",
+		TrackingInfo:    "Shipping from China",
+		ExpectedArrival: "10/4/2022",
+		TransportType:   "Ship",
 	}
 	b, err := json.Marshal(shipment)
 

@@ -34,8 +34,7 @@ func TestCreateCoupon(t *testing.T) {
 func TestUpdateCoupon(t *testing.T) {
 
 	coupon := model.Coupon{
-		CouponID:   4,
-		CouponInfo: "Coupon 4",
+		CouponInfo: "Coupon for free shipment",
 	}
 	b, err := json.Marshal(coupon)
 

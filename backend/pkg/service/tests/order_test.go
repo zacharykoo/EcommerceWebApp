@@ -12,7 +12,7 @@ import (
 func TestCreateOrder(t *testing.T) {
 
 	order := model.Order{
-		MembershipID: 2,
+		MembershipID: 1,
 		PhoneNumber:  4031234567,
 		Email:        "example@gmail.com",
 		City:         "Calgary",
