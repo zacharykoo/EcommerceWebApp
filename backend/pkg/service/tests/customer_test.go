@@ -14,9 +14,12 @@ import (
 func TestCreateCustomer(t *testing.T) {
 
 	customer := model.Customer{
-		FirstName:   "John2",
-		LastName:    "Smith2",
-		PhoneNumber: "123-456-0000",
+		FirstName:   "Beff",
+		LastName:    "Jezos",
+		PhoneNumber: "101-202-3030",
+		Address:     "123 Scamazon",
+		Preference:  "Beauty",
+		Birthday:    "2/12/1940",
 	}
 	b, err := json.Marshal(customer)
 
@@ -40,8 +43,7 @@ func TestUpdateCustomer(t *testing.T) {
 	customer := model.Customer{
 		FirstName:    "JohnEdit",
 		LastName:     "SmithEdit",
-		PhoneNumber:  "123-456-Edit",
-		MembershipID: 4,
+		MembershipID: 5,
 	}
 	b, err := json.Marshal(customer)
 

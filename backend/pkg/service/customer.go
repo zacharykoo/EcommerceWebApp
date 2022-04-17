@@ -20,8 +20,13 @@ func GetCustomerService(repo repository.CustomerRepository) CustomerService {
 	}
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+}
+
 func (c *customer) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		someCustomer, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get customer: %v", err)
@@ -44,6 +49,7 @@ func (c *customer) Get() http.HandlerFunc {
 
 func (c *customer) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -63,6 +69,7 @@ func (c *customer) Create() http.HandlerFunc {
 
 func (c *customer) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

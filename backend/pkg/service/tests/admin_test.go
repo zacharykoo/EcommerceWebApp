@@ -12,8 +12,8 @@ import (
 func TestCreateAdmin(t *testing.T) {
 
 	admin := model.Admin{
-		Name:    "Peter",
-		Address: "123 example address",
+		Name:    "Mickey",
+		Address: "111 Dalt Wisney",
 	}
 	b, err := json.Marshal(admin)
 
