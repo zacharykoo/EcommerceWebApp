@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,7 +23,20 @@ func GetAdminService(repo repository.AdminRepository) AdminService {
 
 func (c *admin) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		someAdmin, err := c.repo.Get()
+		var adminID int
+		var err error
+		adminIDString := r.URL.Query().Get(KeyAdminID)
+		if adminIDString == "" {
+			adminID = 0
+		} else {
+			adminID, err = strconv.Atoi(adminIDString)
+			if err != nil {
+				fmt.Printf("unable to parse adminID: %v", err)
+				w.Write([]byte("error getting admin"))
+				return
+			}
+		}
+		someAdmin, err := c.repo.Get(adminID)
 		if err != nil {
 			fmt.Printf("unable to get admin: %v", err)
 			w.Write([]byte("error getting admin"))

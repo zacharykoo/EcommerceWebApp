@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,12 +23,25 @@ func GetShipmentService(repo repository.ShipmentRepository) ShipmentService {
 
 func (c *shipment) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		someshipment, err := c.repo.Get()
+		var shipmentID int
+		var err error
+		shipmentIDString := r.URL.Query().Get(KeyShipmentID)
+		if shipmentIDString == "" {
+			shipmentID = 0
+		} else {
+			shipmentID, err = strconv.Atoi(shipmentIDString)
+			if err != nil {
+				fmt.Printf("unable to parse shipmentID: %v", err)
+				w.Write([]byte("error getting shipment"))
+				return
+			}
+		}
+		someShipment, err := c.repo.Get(shipmentID)
 		if err != nil {
 			fmt.Printf("unable to get shipment: %v", err)
 			w.Write([]byte("error getting shipment"))
 		}
-		b, err := json.Marshal(someshipment)
+		b, err := json.Marshal(someShipment)
 		if err != nil {
 			fmt.Printf("unable to marshal shipment: %v", err)
 			w.Write([]byte("error marshalling shipment"))

@@ -13,6 +13,13 @@ import (
 
 const (
 	KeyMembershipID = "membershipID"
+	KeyRewardpt_no  = "rewardpt_no"
+	KeyItem_no      = "item_no"
+	KeyCartID       = "cartID"
+	KeyShipmentID   = "shipmentID"
+	KeyOrder_no     = "order_no"
+	KeyCouponID     = "couponID"
+	KeyAdminID      = "adminID"
 )
 
 type customer struct {
@@ -30,14 +37,15 @@ func (c *customer) Get() http.HandlerFunc {
 
 		var membershipID int
 		var err error
-		membershipIDString, ok := r.URL.Query()[KeyMembershipID]
-		if !ok {
+		membershipIDString := r.URL.Query().Get(KeyMembershipID)
+		if membershipIDString == "" {
 			membershipID = 0
 		} else {
-			membershipID, err = strconv.Atoi(membershipIDString[0])
+			membershipID, err = strconv.Atoi(membershipIDString)
 			if err != nil {
 				fmt.Printf("unable to parse membershipID: %v", err)
 				w.Write([]byte("error getting customer"))
+				return
 			}
 		}
 		someCustomer, err := c.repo.Get(membershipID)

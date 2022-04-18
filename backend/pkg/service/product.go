@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,7 +23,20 @@ func GetProductService(repo repository.ProductRepository) ProductService {
 
 func (c *product) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		someProduct, err := c.repo.Get()
+		var item_no int
+		var err error
+		item_noString := r.URL.Query().Get(KeyItem_no)
+		if item_noString == "" {
+			item_no = 0
+		} else {
+			item_no, err = strconv.Atoi(item_noString)
+			if err != nil {
+				fmt.Printf("unable to parse item_no: %v", err)
+				w.Write([]byte("error getting product"))
+				return
+			}
+		}
+		someProduct, err := c.repo.Get(item_no)
 		if err != nil {
 			fmt.Printf("unable to get product: %v", err)
 			w.Write([]byte("error getting product"))

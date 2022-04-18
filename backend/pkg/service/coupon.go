@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,7 +23,20 @@ func GetCouponService(repo repository.CouponRepository) CouponService {
 
 func (c *coupon) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		someCoupon, err := c.repo.Get()
+		var couponID int
+		var err error
+		couponIDString := r.URL.Query().Get(KeyCouponID)
+		if couponIDString == "" {
+			couponID = 0
+		} else {
+			couponID, err = strconv.Atoi(couponIDString)
+			if err != nil {
+				fmt.Printf("unable to parse couponID: %v", err)
+				w.Write([]byte("error getting coupon"))
+				return
+			}
+		}
+		someCoupon, err := c.repo.Get(couponID)
 		if err != nil {
 			fmt.Printf("unable to get coupon: %v", err)
 			w.Write([]byte("error getting coupon"))

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,7 +23,20 @@ func GetRewardsService(repo repository.RewardsRepository) RewardsService {
 
 func (c *rewards) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		someRewards, err := c.repo.Get()
+		var rewardpt_no int
+		var err error
+		rewardpt_noString := r.URL.Query().Get(KeyRewardpt_no)
+		if rewardpt_noString == "" {
+			rewardpt_no = 0
+		} else {
+			rewardpt_no, err = strconv.Atoi(rewardpt_noString)
+			if err != nil {
+				fmt.Printf("unable to parse rewardpt_no: %v", err)
+				w.Write([]byte("error getting rewards"))
+				return
+			}
+		}
+		someRewards, err := c.repo.Get(rewardpt_no)
 		if err != nil {
 			fmt.Printf("unable to get rewards: %v", err)
 			w.Write([]byte("error getting rewards"))
