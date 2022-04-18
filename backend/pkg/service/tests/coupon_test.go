@@ -12,7 +12,7 @@ import (
 func TestCreateCoupon(t *testing.T) {
 
 	coupon := model.Coupon{
-		CouponInfo: "example coupon 3",
+		CouponInfo: "Coupon for 10 percent off!!",
 	}
 	b, err := json.Marshal(coupon)
 

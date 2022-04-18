@@ -108,9 +108,11 @@ URL: http://localhost:3001/api/product
 Method: Get
 Input: item_no
 Output: [{
+    "itemName": string
+    "description": string
     "price": int
     "category": string
-    "product_image": string
+    "productImage": string
 }]
 
 Endpoint 10:
@@ -118,9 +120,11 @@ Description: Set product information.
 URL: http://localhost:3001/api/product
 Method: POST
 Input: [{
+    "itemName": string
+    "description": string
     "price": int
     "category": string
-    "product_image": string
+    "productImage": string
 }]
 Output: item_no
 
@@ -130,54 +134,50 @@ URL: http://localhost:3001/api/product
 Method: PUT
 Input: [{
     "item_no": int
+    "itemName": string
+    "description": string
     "price": int
     "category": string
-    "product_image": string
+    "productImage": string
 }]
 Output: [{
     "item_no": int
+    "itemName": string
+    "description": string
     "price": int
     "category": string
-    "product_image": string
+    "productImage": string
 }]
 
 Endpoint 12:
-Description: Get shopping_cart information.
-URL: http://localhost:3001/api/shopping_cart
+Description: Get shoppingCart information.
+URL: http://localhost:3001/api/shoppingCart
 Method: Get
-Input: cart_ID
+Input: cartID
 Output: [{
-    "quantity": int
-    "total_price": int
-    "products_added": []string
+    "productList": string
 }]
 
 Endpoint 13:
-Description: Set shopping_cart information.
-URL: http://localhost:3001/api/shopping_cart
+Description: Set shoppingCart information.
+URL: http://localhost:3001/api/shoppingCart
 Method: POST
 Input: [{
-    "quantity": int
-    "total_price": int
-    "products_added": []string
+    "productList": string
 }]
-Output: cart_ID
+Output: cartID
 
 Endpoint 14:
-Description: Edit shopping_cart information.
-URL: http://localhost:3001/api/shopping_cart
+Description: Edit shoppingCart information.
+URL: http://localhost:3001/api/shoppingCart
 Method: PUT
 Input: [{
-    "cart_ID": int
-    "quantity": int
-    "total_price": int
-    "products_added": []string
+    "cartID": int
+    "productList": string
 }]
 Output: [{
-    "cart_ID": int
-    "quantity": int
-    "total_price": int
-    "products_added": []string
+    "cartID": int
+    "productList": string
 }]
 
 Endpoint 15:
@@ -254,9 +254,9 @@ Endpoint 19:
 Description: Get coupons.
 URL: http://localhost:3001/api/coupons
 Method: Get
-Input: coupon_ID
+Input: couponID
 Output: [{
-    "coupon_info": string
+    "couponInfo": string
 }]
 
 Endpoint 20:
@@ -264,28 +264,28 @@ Description: Set coupons.
 URL: http://localhost:3001/api/coupons
 Method: POST
 Input: [{
-    "coupon_info": string
+    "couponInfo": string
 }]
-Output: coupon_ID
+Output: couponID
 
 Endpoint 21:
 Description: Edit coupons.
 URL: http://localhost:3001/api/coupons
 Method: PUT
 Input: [{
-    "coupon_ID": int
-    "coupon_info": string
+    "couponID": int
+    "couponInfo": string
 }]
 Output: [{
-    "coupon_ID": int
-    "coupon_info": string
+    "couponID": int
+    "couponInfo": string
 }]
 
 Endpoint 22:
 Description: Get admin.
 URL: http://localhost:3001/api/admin
 Method: Get
-Input: admin_ID
+Input: adminID
 Output: [{
     "name": string
     "address": string
@@ -299,19 +299,19 @@ Input: [{
     "name": string
     "address": string
 }]
-Output: admin_ID
+Output: adminID
 
 Endpoint 24:
 Description: Edit admin.
 URL: http://localhost:3001/api/admin
 Method: PUT
 Input: [{
-    "admin_ID: int
+    "adminID: int
     "name": string
     "address": string
 }]
 Output: [{
-    "admin_ID: int
+    "adminID: int
     "name": string
     "address": string
 }]
@@ -320,11 +320,11 @@ Endpoint 25:
 Description: Get shipment.
 URL: http://localhost:3001/api/shipment
 Method: Get
-Input: shipment_ID
+Input: shipmentID
 Output: [{
-    "tracking_info": string
-    "expected_arrival": date
-    "transport_type": string
+    "trackingInfo": string
+    "expectedArrival": date
+    "transportType": string
 }]
 
 Endpoint 23:
@@ -332,25 +332,25 @@ Description: Set shipment.
 URL: http://localhost:3001/api/shipment
 Method: POST
 Input: [{
-    "tracking_info": string
-    "expected_arrival": date
-    "transport_type": string
+    "trackingInfo": string
+    "expectedArrival": date
+    "transportType": string
 }]
-Output: shipment_ID
+Output: shipmentID
 
 Endpoint 24:
 Description: Edit shipment.
 URL: http://localhost:3001/api/shipment
 Method: PUT
 Input: [{
-    "shipment_ID": int
-    "tracking_info": string
-    "expected_arrival": date
-    "transport_type": string
+    "shipmentID": int
+    "trackingInfo": string
+    "expectedArrival": date
+    "transportType": string
 }]
 Output: [{
-    "shipment_ID": int
-    "tracking_info": string
-    "expected_arrival": date
-    "transport_type": string
+    "shipmentID": int
+    "trackingInfo": string
+    "expectedArrival": date
+    "transportType": string
 }]

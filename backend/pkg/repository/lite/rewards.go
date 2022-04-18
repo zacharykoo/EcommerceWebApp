@@ -15,11 +15,18 @@ func GetRewardsRepository(db *gorm.DB) rewardsRepository {
 	}
 }
 
-func (c *rewardsRepository) Get() ([]model.Rewards, error) {
+func (c *rewardsRepository) Get(ID int) ([]model.Rewards, error) {
 	var rewards []model.Rewards
-	err := c.db.Find(&rewards).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("rewardpt_no = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&rewards).Error
 	return rewards, err
 }
+
 func (c *rewardsRepository) Create(rewards model.Rewards) (model.Rewards, error) {
 	c.db.Save(&rewards)
 	rewards.Rewardpt_no = rewards.ID

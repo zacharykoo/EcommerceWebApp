@@ -15,9 +15,15 @@ func GetAdminRepository(db *gorm.DB) adminRepository {
 	}
 }
 
-func (c *adminRepository) Get() ([]model.Admin, error) {
+func (c *adminRepository) Get(ID int) ([]model.Admin, error) {
 	var admin []model.Admin
-	err := c.db.Find(&admin).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("adminID = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&admin).Error
 	return admin, err
 }
 func (c *adminRepository) Create(admin model.Admin) (model.Admin, error) {

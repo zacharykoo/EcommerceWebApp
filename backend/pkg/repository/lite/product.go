@@ -15,9 +15,15 @@ func GetProductRepository(db *gorm.DB) productRepository {
 	}
 }
 
-func (c *productRepository) Get() ([]model.Product, error) {
+func (c *productRepository) Get(ID int) ([]model.Product, error) {
 	var product []model.Product
-	err := c.db.Find(&product).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("item_no = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&product).Error
 	return product, err
 }
 func (c *productRepository) Create(product model.Product) (model.Product, error) {

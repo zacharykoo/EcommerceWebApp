@@ -15,9 +15,15 @@ func GetShoppingCartRepository(db *gorm.DB) shoppingCartRepository {
 	}
 }
 
-func (c *shoppingCartRepository) Get() ([]model.ShoppingCart, error) {
+func (c *shoppingCartRepository) Get(ID int) ([]model.ShoppingCart, error) {
 	var shoppingCart []model.ShoppingCart
-	err := c.db.Find(&shoppingCart).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("cartID = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&shoppingCart).Error
 	return shoppingCart, err
 }
 func (c *shoppingCartRepository) Create(shoppingCart model.ShoppingCart) (model.ShoppingCart, error) {

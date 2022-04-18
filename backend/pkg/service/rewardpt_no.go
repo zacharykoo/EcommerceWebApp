@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,7 +23,20 @@ func GetRewardpt_noService(repo repository.Rewardpt_noRepository) Rewardpt_noSer
 
 func (c *rewardpt_no) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		someRewardpt, err := c.repo.Get()
+		var membershipID int
+		var err error
+		membershipIDString := r.URL.Query().Get(KeyMembershipID)
+		if membershipIDString == "" {
+			membershipID = 0
+		} else {
+			membershipID, err = strconv.Atoi(membershipIDString)
+			if err != nil {
+				fmt.Printf("unable to parse membershipID: %v", err)
+				w.Write([]byte("error getting customer"))
+				return
+			}
+		}
+		someRewardpt, err := c.repo.Get(membershipID)
 		if err != nil {
 			fmt.Printf("unable to get rewardpt_no: %v", err)
 			w.Write([]byte("error getting rewardpt_no"))

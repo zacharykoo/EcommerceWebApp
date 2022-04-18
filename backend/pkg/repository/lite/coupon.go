@@ -15,9 +15,15 @@ func GetCouponRepository(db *gorm.DB) couponRepository {
 	}
 }
 
-func (c *couponRepository) Get() ([]model.Coupon, error) {
+func (c *couponRepository) Get(ID int) ([]model.Coupon, error) {
 	var coupon []model.Coupon
-	err := c.db.Find(&coupon).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("couponID = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&coupon).Error
 	return coupon, err
 }
 func (c *couponRepository) Create(coupon model.Coupon) (model.Coupon, error) {

@@ -15,9 +15,15 @@ func GetShipmentRepository(db *gorm.DB) shipmentRepository {
 	}
 }
 
-func (c *shipmentRepository) Get() ([]model.Shipment, error) {
+func (c *shipmentRepository) Get(ID int) ([]model.Shipment, error) {
 	var shipment []model.Shipment
-	err := c.db.Find(&shipment).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("shipmentID = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&shipment).Error
 	return shipment, err
 }
 func (c *shipmentRepository) Create(shipment model.Shipment) (model.Shipment, error) {

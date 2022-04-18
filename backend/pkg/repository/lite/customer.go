@@ -19,7 +19,7 @@ func (c *customerRepository) Get(ID int) ([]model.Customer, error) {
 	var customers []model.Customer
 	option := func(db *gorm.DB, ID int) *gorm.DB {
 		if ID != 0 {
-			return db.Where("id = ?", ID)
+			return db.Where("membershipID = ?", ID)
 		}
 		return db
 	}
