@@ -22,7 +22,6 @@ func GetRewardsService(repo repository.RewardsRepository) RewardsService {
 
 func (c *rewards) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		someRewards, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get rewards: %v", err)
@@ -45,7 +44,6 @@ func (c *rewards) Get() http.HandlerFunc {
 
 func (c *rewards) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -66,7 +64,6 @@ func (c *rewards) Create() http.HandlerFunc {
 
 func (c *rewards) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

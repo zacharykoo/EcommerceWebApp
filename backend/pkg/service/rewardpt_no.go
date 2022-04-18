@@ -22,7 +22,6 @@ func GetRewardpt_noService(repo repository.Rewardpt_noRepository) Rewardpt_noSer
 
 func (c *rewardpt_no) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		someRewardpt, err := c.repo.Get()
 		if err != nil {
 			fmt.Printf("unable to get rewardpt_no: %v", err)
@@ -45,7 +44,6 @@ func (c *rewardpt_no) Get() http.HandlerFunc {
 
 func (c *rewardpt_no) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -65,7 +63,6 @@ func (c *rewardpt_no) Create() http.HandlerFunc {
 
 func (c *rewardpt_no) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
