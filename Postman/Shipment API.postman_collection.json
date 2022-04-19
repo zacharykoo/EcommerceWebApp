@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "caa2a9f7-2b21-4802-9b17-ca2d4e882561",
+		"name": "Shipment API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/shipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shipment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:30:54 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "461"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:26.6481514-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:26.6522369-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 1,\n        \"trackingInfo\": \"All the way up Mars\",\n        \"expectedArrival\": \"16/4/2022\",\n        \"transportType\": \"Private Jet\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:54:12.6108075-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:54:12.614883-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 2,\n        \"trackingInfo\": \"Shipping from China\",\n        \"expectedArrival\": \"10/4/2022\",\n        \"transportType\": \"Ship\"\n    }\n]"
+				},
+				{
+					"name": "Get specific shipment with ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/shipment?shipmentID=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shipment"
+							],
+							"query": [
+								{
+									"key": "shipmentID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:31:19 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "227"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:54:12.6108075-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:54:12.614883-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 2,\n        \"trackingInfo\": \"Shipping from China\",\n        \"expectedArrival\": \"10/4/2022\",\n        \"transportType\": \"Ship\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "POST request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"trackingInfo\": \"Shipping from Canada\",\r\n\"expectedArrival\": \"12/4/2022\",\r\n\"transportType\": \"Ship\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/shipment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"shipment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"trackingInfo\": \"Shipping from Canada\",\r\n\"expectedArrival\": \"12/4/2022\",\r\n\"transportType\": \"Ship\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/shipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shipment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:32:11 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created shipment with shipmentID: 3"
+				},
+				{
+					"name": "Get after POST request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"trackingInfo\": \"Shipping from Canada\",\r\n\"expectedArrival\": \"12/4/2022\",\r\n\"transportType\": \"Ship\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/shipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shipment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:32:26 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "689"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:26.6481514-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:26.6522369-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 1,\n        \"trackingInfo\": \"All the way up Mars\",\n        \"expectedArrival\": \"16/4/2022\",\n        \"transportType\": \"Private Jet\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:54:12.6108075-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:54:12.614883-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 2,\n        \"trackingInfo\": \"Shipping from China\",\n        \"expectedArrival\": \"10/4/2022\",\n        \"transportType\": \"Ship\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-19T00:32:11.5671057-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:32:11.5778194-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 3,\n        \"trackingInfo\": \"Shipping from Canada\",\n        \"expectedArrival\": \"12/4/2022\",\n        \"transportType\": \"Ship\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Put request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"shipmentID\": 3,\r\n\"trackingInfo\": \"Edited: Shipping from Toronto\",\r\n\"expectedArrival\": \"12/4/2022\",\r\n\"transportType\": \"Ship\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/shipment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"shipment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Put request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"shipmentID\": 3,\r\n\"trackingInfo\": \"Edited: Shipping from Toronto\",\r\n\"expectedArrival\": \"12/4/2022\",\r\n\"transportType\": \"Ship\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/shipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shipment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:33:20 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Shipment with shipmentID 3 is editted"
+				},
+				{
+					"name": "Get after Put request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"shipmentID\": 3,\r\n\"trackingInfo\": \"Edited: Shipping from Toronto\",\r\n\"expectedArrival\": \"12/4/2022\",\r\n\"transportType\": \"Ship\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/shipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"shipment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:33:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "698"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:26.6481514-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:26.6522369-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 1,\n        \"trackingInfo\": \"All the way up Mars\",\n        \"expectedArrival\": \"16/4/2022\",\n        \"transportType\": \"Private Jet\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:54:12.6108075-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:54:12.614883-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 2,\n        \"trackingInfo\": \"Shipping from China\",\n        \"expectedArrival\": \"10/4/2022\",\n        \"transportType\": \"Ship\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-19T00:32:11.5671057-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:33:20.4432311-06:00\",\n        \"DeletedAt\": null,\n        \"shipmentID\": 3,\n        \"trackingInfo\": \"Edited: Shipping from Toronto\",\n        \"expectedArrival\": \"12/4/2022\",\n        \"transportType\": \"Ship\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
