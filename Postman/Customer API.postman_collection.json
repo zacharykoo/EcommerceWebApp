@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "208e2587-b2c4-4ba4-9d37-3e0acfbe11b9",
+		"name": "Customer API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request for Customer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sample endpoint: Returns details about a particular customer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/customer?membershipID=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"customer"
+							],
+							"query": [
+								{
+									"key": "membershipID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 04:07:41 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "262"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:48:20.3196056-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:48:20.3237008-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Mlon\",\n        \"ln\": \"Eusk\",\n        \"phone_no\": \"123-456-7890\",\n        \"address\": \"123 Kesla\",\n        \"preference\": \"Electrical\",\n        \"birthday\": \"10/10/1950\",\n        \"membershipID\": 1\n    }\n]"
+				},
+				{
+					"name": "Sample endpoint: Returns details about a particular customer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/customer?membershipID=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"customer"
+							],
+							"query": [
+								{
+									"key": "membershipID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 04:19:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:49:46.6634225-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:49:46.6680239-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Beff\",\n        \"ln\": \"Jezos\",\n        \"phone_no\": \"101-202-3030\",\n        \"address\": \"123 Scamazon\",\n        \"preference\": \"Beauty\",\n        \"birthday\": \"2/12/1940\",\n        \"membershipID\": 2\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "POST request for customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fn\": \"Zachary\",\r\n    \"ln\": \"Koo\",\r\n    \"phone_no\": \"403-123-1234\",\r\n    \"address\": \"123 Example\",\r\n    \"preference\": \"Beauty\",\r\n    \"birthday\": \"1/1/1990\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST request for customer, creating new customer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fn\": \"Zachary\",\r\n    \"ln\": \"Koo\",\r\n    \"phone_no\": \"403-123-1234\",\r\n    \"address\": \"123 Example\",\r\n    \"preference\": \"Beauty\",\r\n    \"birthday\": \"1/1/1990\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:01:05 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "27"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created customer with ID: 3"
+				},
+				{
+					"name": "Example after POST",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fn\": \"Zachary\",\r\n    \"ln\": \"Koo\",\r\n    \"phone_no\": \"403-123-1234\",\r\n    \"address\": \"123 Example\",\r\n    \"preference\": \"Beauty\",\r\n    \"birthday\": \"1/1/1990\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:01:48 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "778"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:48:20.3196056-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:48:20.3237008-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Mlon\",\n        \"ln\": \"Eusk\",\n        \"phone_no\": \"123-456-7890\",\n        \"address\": \"123 Kesla\",\n        \"preference\": \"Electrical\",\n        \"birthday\": \"10/10/1950\",\n        \"membershipID\": 1\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:49:46.6634225-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:49:46.6680239-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Beff\",\n        \"ln\": \"Jezos\",\n        \"phone_no\": \"101-202-3030\",\n        \"address\": \"123 Scamazon\",\n        \"preference\": \"Beauty\",\n        \"birthday\": \"2/12/1940\",\n        \"membershipID\": 2\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-18T23:01:05.177044-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:01:05.18671-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Zachary\",\n        \"ln\": \"Koo\",\n        \"phone_no\": \"403-123-1234\",\n        \"address\": \"123 Example\",\n        \"preference\": \"Beauty\",\n        \"birthday\": \"1/1/1990\",\n        \"membershipID\": 3\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "PUT request for customer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"{\r",
+							"    \"fn\": \"Kachary\",\r",
+							"    \"ln\": \"Zoo\",\r",
+							"    \"phone_no\": \"403-123-2234\",\r",
+							"    \"address\": \"123 Edited address\",\r",
+							"    \"preference\": \"Electrial\",\r",
+							"    \"birthday\": \"2/2/1990\",\r",
+							"    \"membershipID\": 3\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"customer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PUT request for membershipID 3",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fn\": \"Kachary\",\r\n    \"ln\": \"Zoo\",\r\n    \"phone_no\": \"403-123-2234\",\r\n    \"address\": \"123 Edited address\",\r\n    \"preference\": \"Electrial\",\r\n    \"birthday\": \"2/2/1990\",\r\n    \"membershipID\": 3\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:13:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Customer with membershipID 3 is editted"
+				},
+				{
+					"name": "Example after PUT",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fn\": \"Kachary\",\r\n    \"ln\": \"Zoo\",\r\n    \"phone_no\": \"403-123-2234\",\r\n    \"address\": \"123 Edited address\",\r\n    \"preference\": \"Electrial\",\r\n    \"birthday\": \"2/2/1990\",\r\n    \"membershipID\": 3\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"customer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:13:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "789"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:48:20.3196056-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:48:20.3237008-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Mlon\",\n        \"ln\": \"Eusk\",\n        \"phone_no\": \"123-456-7890\",\n        \"address\": \"123 Kesla\",\n        \"preference\": \"Electrical\",\n        \"birthday\": \"10/10/1950\",\n        \"membershipID\": 1\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:49:46.6634225-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:49:46.6680239-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Beff\",\n        \"ln\": \"Jezos\",\n        \"phone_no\": \"101-202-3030\",\n        \"address\": \"123 Scamazon\",\n        \"preference\": \"Beauty\",\n        \"birthday\": \"2/12/1940\",\n        \"membershipID\": 2\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-18T23:01:05.177044-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:13:23.331866-06:00\",\n        \"DeletedAt\": null,\n        \"fn\": \"Kachary\",\n        \"ln\": \"Zoo\",\n        \"phone_no\": \"403-123-2234\",\n        \"address\": \"123 Edited address\",\n        \"preference\": \"Electrial\",\n        \"birthday\": \"2/2/1990\",\n        \"membershipID\": 3\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
