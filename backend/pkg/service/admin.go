@@ -72,7 +72,7 @@ func (c *admin) Create() http.HandlerFunc {
 
 		admin, _ = c.repo.Create(admin)
 		admin.AdminID = admin.ID
-		w.Write([]byte(fmt.Sprintf("created admin with No: %v", admin.ID)))
+		w.Write([]byte(fmt.Sprintf("created admin with adminID: %v", admin.AdminID)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *admin) Edit() http.HandlerFunc {
 		}
 
 		admin, _ = c.repo.Edit(admin)
-		w.Write([]byte(fmt.Sprintf("created admin with ID: %v", admin.ID)))
+		w.Write([]byte(fmt.Sprintf("Admin with adminID %v is editted", admin.AdminID)))
 	}
 }

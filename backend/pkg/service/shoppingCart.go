@@ -72,7 +72,7 @@ func (c *shoppingCart) Create() http.HandlerFunc {
 
 		shoppingCart, _ = c.repo.Create(shoppingCart)
 		shoppingCart.CartID = shoppingCart.ID
-		w.Write([]byte(fmt.Sprintf("created rewards with No: %v", shoppingCart.ID)))
+		w.Write([]byte(fmt.Sprintf("created shopping cart with cartID: %v", shoppingCart.CartID)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *shoppingCart) Edit() http.HandlerFunc {
 		}
 
 		shoppingCart, _ = c.repo.Edit(shoppingCart)
-		w.Write([]byte(fmt.Sprintf("created shopping cart with ID: %v", shoppingCart.ID)))
+		w.Write([]byte(fmt.Sprintf("Shopping cart with cartID %v is editted", shoppingCart.CartID)))
 	}
 }

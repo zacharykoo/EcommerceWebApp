@@ -42,6 +42,7 @@ func TestUpdateProduct(t *testing.T) {
 		Price:      1200,
 		Category:   "Edited",
 	}
+
 	b, err := json.Marshal(product)
 
 	if err != nil {
