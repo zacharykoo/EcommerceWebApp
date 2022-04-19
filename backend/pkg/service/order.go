@@ -72,7 +72,7 @@ func (c *order) Create() http.HandlerFunc {
 
 		order, _ = c.repo.Create(order)
 		order.OrderNumber = order.ID
-		w.Write([]byte(fmt.Sprintf("created rewards with No: %v", order.ID)))
+		w.Write([]byte(fmt.Sprintf("created rewards with order_no: %v", order.OrderNumber)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *order) Edit() http.HandlerFunc {
 		}
 
 		order, _ = c.repo.Edit(order)
-		w.Write([]byte(fmt.Sprintf("created order with ID: %v", order.ID)))
+		w.Write([]byte(fmt.Sprintf("Order with order_no %v is editted", order.OrderNumber)))
 	}
 }

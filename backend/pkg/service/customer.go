@@ -83,7 +83,7 @@ func (c *customer) Create() http.HandlerFunc {
 		}
 
 		customer, _ = c.repo.Create(customer)
-		w.Write([]byte(fmt.Sprintf("created customer with ID: %v", customer.ID)))
+		w.Write([]byte(fmt.Sprintf("created customer with membershipID: %v", customer.MembershipID)))
 	}
 }
 
@@ -102,6 +102,6 @@ func (c *customer) Edit() http.HandlerFunc {
 		}
 
 		customer, _ = c.repo.Edit(customer)
-		w.Write([]byte(fmt.Sprintf("created customer with ID: %v", customer.ID)))
+		w.Write([]byte(fmt.Sprintf("Customer with membershipID %v is editted", customer.MembershipID)))
 	}
 }

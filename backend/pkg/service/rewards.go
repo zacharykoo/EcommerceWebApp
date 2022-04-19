@@ -72,7 +72,7 @@ func (c *rewards) Create() http.HandlerFunc {
 
 		rewards, _ = c.repo.Create(rewards)
 		rewards.Rewardpt_no = rewards.ID
-		w.Write([]byte(fmt.Sprintf("created rewards with No: %v", rewards.ID)))
+		w.Write([]byte(fmt.Sprintf("created rewards with rewardpt_no: %v", rewards.Rewardpt_no)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *rewards) Edit() http.HandlerFunc {
 		}
 
 		rewards, _ = c.repo.Edit(rewards)
-		w.Write([]byte(fmt.Sprintf("created rewards with ID: %v", rewards.ID)))
+		w.Write([]byte(fmt.Sprintf("Rewards with rewardpt_no %v is editted", rewards.Rewardpt_no)))
 	}
 }
