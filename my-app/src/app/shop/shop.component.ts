@@ -25,7 +25,7 @@ export class ShopComponent implements OnInit {
   }
 
   addToCart(product:Products):void {
-    alert("Added to cart");
+    alert("Added to cart" + product.itemName);
     this.dataService.addToCart(product);
   }
 

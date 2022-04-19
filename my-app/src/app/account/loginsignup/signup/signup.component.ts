@@ -14,30 +14,31 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/f
 export class SignupComponent implements OnInit {
 
 	tempCustomer: Customer = {
-		firstname: '',
-		lastname: '',
-		phone_no: -1,
+		fn: '',
+		ln: '',
+		phone_no: '',
 		address: '',
 		preference: '',
 		birthday: '',
-		membershipID: -1
+		// membershipID: -1
 	};
 
 
 	firstname: string = "";
 	lastname: string = "";
-	phone_no: number = -1;
+	phone_no: string = "";
 	birthday: string = "";
+	address: string = "";
+	preference: string = "";
 
 	newCustomer():void {
 		this.setValue();
-		this.tempCustomer.firstname = this.firstname;
-		this.tempCustomer.lastname = this.lastname;
+		this.tempCustomer.fn = this.firstname;
+		this.tempCustomer.ln = this.lastname;
 		this.tempCustomer.phone_no = this.phone_no;
 		this.tempCustomer.birthday = this.birthday;
-		this.tempCustomer.membershipID = 10;
-
-
+		this.tempCustomer.address = this.address;
+		this.tempCustomer.preference = this.preference;
 	};
 
   constructor(
@@ -48,19 +49,32 @@ export class SignupComponent implements OnInit {
 public userForm: FormGroup = this.fb.group({
 	firstname:'',
 	lastname:'',
+	birthday:'',
 	phone_no: null,
-	email:'',
+	address:'',
+	preference:''
 });
 
  setValue() {
     this.firstname = this.userForm.get('firstname')?.value; // input value retrieved
-    alert("FROM FORM " + this.userForm.get('firstname')?.value);
+    this.lastname = this.userForm.get('lastname')?.value;
+    this.birthday = this.userForm.get('birthday')?.value;
+    this.phone_no = this.userForm.get('phone_no')?.value;
+    this.address = this.userForm.get('address')?.value;
+    this.preference = this.userForm.get('preference')?.value;
+    // alert("FROM FORM " + this.userForm.get('firstname')?.value);
 
     //TODO add
   }
 
   ngOnInit(): void {
-  	this.dataService.newCustomer(this.tempCustomer)
+  	// this.dataService.newCustomer(this.tempCustomer)
   }
+
+  registerNewCustomer(): void {
+  	this.newCustomer();
+  	this.dataService.postCustomer(this.tempCustomer);
+  }
+
 
 }

@@ -1,5 +1,4 @@
 export interface Cart {
-	productName:string;
-	productQuantity:number;
-	productPrice:number;
+	cartID:number;
+	productList:string;
 }

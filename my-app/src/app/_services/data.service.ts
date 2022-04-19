@@ -5,6 +5,9 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 import { Products } from '../_objects/products';
+import { Customer } from '../_objects/customer';
+import { Cart } from '../_objects/cart';
+import { DisplayCart } from '../_objects/displayCart';
 
 // import { Shop } from '../_objects/shop';
 
@@ -96,16 +99,11 @@ export class DataService {
 	   return this.http.get(this.couponData);
 	 }
 
-	 public newCustomer(data:any): Observable<any> {
-	 	return this.http.post(this.customerData, JSON.stringify(data));
-	 }
-
-
 
 	private productDataTest = "http://localhost:3000/products";
 
 	 postProduct(product:Products):void {
-	 	alert(product.price);
+	 	// alert(product.price);
 	 	// var testData = '{"ItemName":"Test","Description":"desc","Price":12,"Category":"category","ProductImage":"www.com"}';
 	 	var jsonData = JSON.stringify(product, function(key, value) {
 	 		if (key == "price") {
@@ -129,21 +127,125 @@ export class DataService {
 	    );
 	  }
 
-	  addToCart(product:Products):void {
-	  	var params = new HttpParams().set("cartID", 1);
+	  putProduct(product:Products, index:number):void {
+	 	// alert(product.price);
+	 	// var testData = '{"ItemName":"Test","Description":"desc","Price":12,"Category":"category","ProductImage":"www.com"}';
+	 	var params = new HttpParams().set("item_no", index);
+	 	var jsonData = JSON.stringify(product, function(key, value) {
+	 		if (key == "price") {
+			    return parseInt(value);
+			  } else {
+			    return value;
+			  }
+	 	});
 
-	  	var oldProductList = this.http.get(this.cartData, {params: params}).subscribe(
+	 	 this.http.put<Products>(this.productData, {item_no: index, itemName: product.itemName, description: product.description, price: product.price, product_image: product.product_image}).subscribe(
 	        val => {
-	            console.log("GET to cart call successful value returned in body", 
+	            console.log("POST to products call successful value returned in body", 
 	                        val);
 	        },
 	        response => {
-	            console.log("GET to cart call in error", response);
+	            console.log("POST to products call in error", response);
 	        },
 	        () => {
-	            console.log("GET to cart products observable is now completed.");
+	            console.log("The POST to products observable is now completed.");
 	        }
 	    );
+
+	    // this.http.put<Products>(this.productData, jsonData, {params: params}).subscribe(
+	    //     val => {
+	    //         console.log("POST to products call successful value returned in body", 
+	    //                     val);
+	    //     },
+	    //     response => {
+	    //         console.log("POST to products call in error", response);
+	    //     },
+	    //     () => {
+	    //         console.log("The POST to products observable is now completed.");
+	    //     }
+	    // );
+	  }
+
+	  // private oldProductList: DisplayCart = {
+	  // 		productName: "",
+			// productQuantity: -1,
+			// productPrice: -1
+	  // 	}
+
+	  postCustomer(customer:Customer): void {
+	  	var jsonData = JSON.stringify(customer);
+
+	 	alert(jsonData);
+
+	 	// var testData = '{"fn":"TEST","ln":"TEST","phone_no":"121212","address":"123 Test address","preference":"Audio","birthday":"10/10/1990"}'
+
+	 	// alert("JSON" + jsonData + " Test " + testData);
+
+	    this.http.post(this.customerData, jsonData).subscribe(
+	        val => {
+	            console.log("POST to customer call successful value returned in body", 
+	                        val);
+	        },
+	        response => {
+	            console.log("POST to customer call in error", response);
+	        },
+	        () => {
+	            console.log("The POST to customer observable is now completed.");
+	        }
+	    );
+	  }
+
+
+	  testFunc(): void {
+	  	var params = new HttpParams().set("item_no", 2);
+	  	this.http.get(this.productData, {params: params}).subscribe((data: any)=> {
+	  		alert(JSON.stringify(data));
+	   	});
+
+	  }
+
+	  	private oldCartList: Cart = {
+	  		cartID: -1,
+			productList:""
+	  	};
+
+	  addToCart(product:Products):void {
+	  	var params = new HttpParams().set("cartID", 1);
+	  	var oldProductList = "";
+	  	
+	  	this.http.get(this.cartData, {params: params}).subscribe((data: any)=> {
+	   	console.log(data);
+	   		// alert("getting data");
+	   		// alert(JSON.stringify(data));
+	   		// this.oldProductList = data.productList;
+	   		this.oldCartList = data;
+
+	  		alert("Old cart in " + JSON.stringify(this.oldCartList));
+	  		var oldProductList = this.oldCartList.productList;
+	  		alert("Old list " + JSON.stringify(oldProductList));
+		  	// oldProductList.concat(product.itemName);
+		  	// oldProductList.append(1);
+		  	alert("Old list updated " + JSON.stringify(oldProductList));
+
+	   });
+
+	 
+
+	  	
+	  // oldProductList.a
+	  
+	  	// (
+	   //      val => {
+	   //          console.log("GET to cart call successful value returned in body", 
+	   //                      val);
+	   //      },
+	   //      response => {
+	   //          console.log("GET to cart call in error", response);
+	   //      },
+	   //      () => {
+	   //          console.log("GET to cart products observable is now completed.");
+	   //      }
+	   //  );
 
 	  	// alert(oldProductList);
 
@@ -158,7 +260,9 @@ export class DataService {
 			//   }
 	 	// });
 
-	 	this.http.post<Products>(this.cartData, oldProductList).subscribe(
+
+
+	 	this.http.post<Cart>(this.cartData, oldProductList).subscribe(
 	        val => {
 	            console.log("POST to cart call successful value returned in body", 
 	                        val);

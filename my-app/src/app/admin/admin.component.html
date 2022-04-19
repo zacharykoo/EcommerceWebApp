@@ -21,7 +21,17 @@
 		<mat-label>Category</mat-label>
 		<input matInput placeholder="Enter the product category" formControlName="productCategory">
 	</mat-form-field>
+	<mat-select>
+		<mat-option *ngFor="let product of products"  (onSelectionChange)="bindValue(product.itemName)">{{product.itemName}}</mat-option>
+	</mat-select>
+	<mat-label>For edit</mat-label>
+
+
 </form>
 
 <button (click)="postProduct()">Add Product</button>
-<button onclick="putProduct()">Edit Product</button>
+<button (click)="putProduct()">Edit Product</button>
+
+
+
+<button (click)="testButton()">TEST</button>

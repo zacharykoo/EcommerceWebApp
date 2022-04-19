@@ -31,6 +31,7 @@ import { LoginComponent } from './account/loginsignup/login/login.component';
 import { RewardsComponent } from './account/rewards/rewards.component';
 import { AdminComponent } from './admin/admin.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

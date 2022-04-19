@@ -23,6 +23,7 @@ export class AdminComponent implements OnInit {
   private productData = "http://localhost:3000/products";
 
 	admin: any[] = [];
+  products: Products[] = [];
 
 	productName: string = "";
 	productDescription: string = "";
@@ -39,6 +40,8 @@ export class AdminComponent implements OnInit {
 		category: "",
 		product_image: ""
 	};
+
+  selectedProduct:string ="";
 
     //TODO add
   constructor(private fb: FormBuilder, private dataService: DataService, private http: HttpClient) { }
@@ -69,7 +72,10 @@ export class AdminComponent implements OnInit {
   		console.log(data);
   		this.admin = data;
   	})
-
+    this.dataService.getProduct().subscribe((data: any[])=>{
+      console.log(data);
+      this.products = data;
+    })
   	// this.http.post<Products>(this.productData, JSON.stringify(this.newProduct)).subscribe(data => {
 	 	// 	this.productName = data.itemName;
 	 	// });
@@ -93,11 +99,41 @@ export class AdminComponent implements OnInit {
 	    this.productImage = this.addProduct.get('productImage')?.value;
 	}
 
+  bindValue(prod:any):void {
+    this.selectedProduct = prod;
+    // alert(prod);
+  }
+
 	postProduct(): void {
-  	alert("PUSHED");
+  	// alert("PUSHED");
     this.addNewProduct();
 	 	// return this.http.post<Products>(this.productData, JSON.stringify(this.newProduct));
      this.dataService.postProduct(this.newProduct);
+  }
+
+  putProduct(): void {
+    var itemID = -1;
+    var i = 0;
+    for(let prod of this.products)
+    {
+      // alert("Checking " + prod.itemName + " vs " + this.selectedProduct);
+      if(prod.itemName === this.selectedProduct)
+      {
+        itemID = i; 
+      }
+      i++;
+
+    }
+    // var itemID = this.products.indexOf(this.selectedProduct).itemName;
+    // alert(itemID);
+    this.addNewProduct();
+    this.dataService.putProduct(this.newProduct, itemID);
+
+  }
+
+
+  testButton(): void {
+    this.dataService.testFunc();
   }
 
 }

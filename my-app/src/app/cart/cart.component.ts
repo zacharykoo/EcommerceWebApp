@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../_services/data.service';
 
 import { Products } from '../_objects/products';
-import { Cart } from '../_objects/cart';
+import { DisplayCart } from '../_objects/displayCart';
 
 @Component({
   selector: 'app-cart',
@@ -23,12 +23,15 @@ export class CartComponent implements OnInit {
   ];
   products: Products[] = [];
 
-  organizedCart: Cart[] = [];
+  organizedCart: DisplayCart[] = [];
 
   // checkCoupons():void {};
   checkCoupons():void{
     var inputCoupon = (<HTMLInputElement>document.getElementById('inputCoupon'))!.value;
     var valid = this.couponIDToCode.indexOf(inputCoupon);
+
+    alert(JSON.stringify(this.validCoupons));
+
     if(valid != -1)
     {
       (<HTMLInputElement>document.getElementById('isCouponValid')!).innerHTML = "Coupon has been applied";
@@ -101,7 +104,8 @@ export class CartComponent implements OnInit {
       console.log(data);
       this.products = data;
     })
-
+    
+    alert(JSON.stringify(this.cart));
     this.organizeCart();
   }
 
