@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "f46a0017-866c-44ef-bc25-e0abfdeb3c74",
+		"name": "Coupon API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/coupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:37:33 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-18T02:06:54.9494821-06:00\",\n        \"UpdatedAt\": \"2022-04-18T02:06:54.954077-06:00\",\n        \"DeletedAt\": null,\n        \"couponID\": 1,\n        \"couponInfo\": \"Coupon for 10 percent off!!\"\n    }\n]"
+				},
+				{
+					"name": "Get request specific ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/coupon?couponID=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							],
+							"query": [
+								{
+									"key": "couponID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:38:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "178"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-18T02:06:54.9494821-06:00\",\n        \"UpdatedAt\": \"2022-04-18T02:06:54.954077-06:00\",\n        \"DeletedAt\": null,\n        \"couponID\": 1,\n        \"couponInfo\": \"Coupon for 10 percent off!!\"\n    }\n]"
+				},
+				{
+					"name": "Get request with ID not exsisting",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/coupon?couponID=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							],
+							"query": [
+								{
+									"key": "couponID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:38:16 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Post request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"couponInfo\": \"Coupon for 20 percent off!!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/coupon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"coupon"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"couponInfo\": \"Coupon for 20 percent off!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/coupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:38:53 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "32"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created rewards with couponID: 2"
+				},
+				{
+					"name": "Get after Post request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"couponInfo\": \"Coupon for 20 percent off!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/coupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:39:04 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "356"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-18T02:06:54.9494821-06:00\",\n        \"UpdatedAt\": \"2022-04-18T02:06:54.954077-06:00\",\n        \"DeletedAt\": null,\n        \"couponID\": 1,\n        \"couponInfo\": \"Coupon for 10 percent off!!\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-19T00:38:53.5623156-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:38:53.5730396-06:00\",\n        \"DeletedAt\": null,\n        \"couponID\": 2,\n        \"couponInfo\": \"Coupon for 20 percent off!!\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Put request",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Put request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"couponID\": 2,\r\n\"couponInfo\": \"Edited: Coupon for 50 percent off!!!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/coupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:39:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Coupon with couponID 2 is editted"
+				},
+				{
+					"name": "Get after Put request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"couponID\": 2,\r\n\"couponInfo\": \"Edited: Coupon for 50 percent off!!!!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/coupon",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coupon"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:39:58 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "366"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-18T02:06:54.9494821-06:00\",\n        \"UpdatedAt\": \"2022-04-18T02:06:54.954077-06:00\",\n        \"DeletedAt\": null,\n        \"couponID\": 1,\n        \"couponInfo\": \"Coupon for 10 percent off!!\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-19T00:38:53.5623156-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:39:51.6792274-06:00\",\n        \"DeletedAt\": null,\n        \"couponID\": 2,\n        \"couponInfo\": \"Edited: Coupon for 50 percent off!!!!\"\n    }\n]"
+				}
+			]
+		}
+	]
+}

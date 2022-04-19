@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "bd3771be-84e7-4403-b070-6747d97e682d",
+		"name": "Admin API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:34:27 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "360"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:43:46.3046014-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:43:46.3097238-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 1,\n        \"name\": \"Peter\",\n        \"address\": \"123 example address\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:44:11.5703796-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:44:11.5770404-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 2,\n        \"name\": \"Mickey\",\n        \"address\": \"111 Dalt Wisney\"\n    }\n]"
+				},
+				{
+					"name": "Get specfic admin with ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/admin?adminID=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "adminID",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:34:45 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "179"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:44:11.5703796-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:44:11.5770404-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 2,\n        \"name\": \"Mickey\",\n        \"address\": \"111 Dalt Wisney\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Post request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Zachary\",\r\n\"address\": \"123 Example\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"admin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Zachary\",\r\n\"address\": \"123 Example\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:35:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created admin with adminID: 3"
+				},
+				{
+					"name": "Get after Post request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"name\": \"Zachary\",\r\n\"address\": \"123 Example\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:35:49 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "535"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:43:46.3046014-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:43:46.3097238-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 1,\n        \"name\": \"Peter\",\n        \"address\": \"123 example address\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:44:11.5703796-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:44:11.5770404-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 2,\n        \"name\": \"Mickey\",\n        \"address\": \"111 Dalt Wisney\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-19T00:35:37.3890581-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:35:37.3992681-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 3,\n        \"name\": \"Zachary\",\n        \"address\": \"123 Example\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Put request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"adminID\": 3,\r\n\"name\": \"Edit: Jason\",\r\n\"address\": \"123 Edited\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"admin"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Put request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"adminID\": 3,\r\n\"name\": \"Edit: Jason\",\r\n\"address\": \"123 Edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:36:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Admin with adminID 3 is editted"
+				},
+				{
+					"name": "Get after Put request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"adminID\": 3,\r\n\"name\": \"Edit: Jason\",\r\n\"address\": \"123 Edited\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"admin"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:37:01 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "538"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:43:46.3046014-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:43:46.3097238-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 1,\n        \"name\": \"Peter\",\n        \"address\": \"123 example address\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:44:11.5703796-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:44:11.5770404-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 2,\n        \"name\": \"Mickey\",\n        \"address\": \"111 Dalt Wisney\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-19T00:35:37.3890581-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:36:51.3434183-06:00\",\n        \"DeletedAt\": null,\n        \"adminID\": 3,\n        \"name\": \"Edit: Jason\",\n        \"address\": \"123 Edited\"\n    }\n]"
+				}
+			]
+		}
+	]
+}
