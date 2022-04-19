@@ -1,0 +1,27 @@
+
+
+<form [formGroup]="addProduct">
+	<mat-form-field>
+		<mat-label>Product Name</mat-label>
+		<input matInput placeholder="Enter the product name" formControlName="productName">
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Product Price</mat-label>
+		<input matInput placeholder="Enter the product price" formControlName="productPrice">
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Product Descriptio </mat-label>
+		<input matInput placeholder="Enter the product description" formControlName="productDescription">
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Product Image URL</mat-label>
+		<input matInput placeholder="Enter the product image url" formControlName="productImage">
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>Category</mat-label>
+		<input matInput placeholder="Enter the product category" formControlName="productCategory">
+	</mat-form-field>
+</form>
+
+<button (click)="postProduct()">Add Product</button>
+<button onclick="putProduct()">Edit Product</button>

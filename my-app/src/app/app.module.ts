@@ -21,6 +21,16 @@ import { MatCardModule }from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginSignupComponent } from './account/loginsignup/loginsignup.component';
+import { ManageComponent } from './account/manage/manage.component';
+import { SignupComponent } from './account/loginsignup/signup/signup.component';
+import { LoginComponent } from './account/loginsignup/login/login.component';
+import { RewardsComponent } from './account/rewards/rewards.component';
+import { AdminComponent } from './admin/admin.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -30,7 +40,13 @@ import { MatFormFieldModule } from '@angular/material/form-field'
     HomeComponent,
     AboutComponent,
     AccountComponent,
-    CartComponent
+    CartComponent,
+    LoginSignupComponent,
+    ManageComponent,
+    SignupComponent,
+    LoginComponent,
+    RewardsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +59,12 @@ import { MatFormFieldModule } from '@angular/material/form-field'
     MatCardModule,
     MatProgressSpinnerModule,
     MatFormFieldModule,
-    HttpClientModule
+    MatInputModule,
+    MatMenuModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
