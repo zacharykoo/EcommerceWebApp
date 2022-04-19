@@ -66,13 +66,13 @@ func (c *product) Create() http.HandlerFunc {
 		var product model.Product
 		err = json.Unmarshal(body, &product)
 		if err != nil {
-			fmt.Printf("unable to unmarshal into rewards: %v", err)
+			fmt.Printf("unable to unmarshal into product: %v", err)
 			return
 		}
 
 		product, _ = c.repo.Create(product)
 		product.ItemNumber = product.ID
-		w.Write([]byte(fmt.Sprintf("created rewards with No: %v", product.ID)))
+		w.Write([]byte(fmt.Sprintf("created product with No: %v", product.ID)))
 	}
 }
 
