@@ -72,7 +72,7 @@ func (c *product) Create() http.HandlerFunc {
 
 		product, _ = c.repo.Create(product)
 		product.ItemNumber = product.ID
-		w.Write([]byte(fmt.Sprintf("created product with No: %v", product.ID)))
+		w.Write([]byte(fmt.Sprintf("created product with item_no: %v", product.ItemNumber)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *product) Edit() http.HandlerFunc {
 		}
 
 		product, _ = c.repo.Edit(product)
-		w.Write([]byte(fmt.Sprintf("created product with ID: %v", product.ID)))
+		w.Write([]byte(fmt.Sprintf("Product with item_no %v is editted", product.ItemNumber)))
 	}
 }

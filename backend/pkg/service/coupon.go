@@ -72,7 +72,7 @@ func (c *coupon) Create() http.HandlerFunc {
 
 		coupon, _ = c.repo.Create(coupon)
 		coupon.CouponID = coupon.ID
-		w.Write([]byte(fmt.Sprintf("created rewards with No: %v", coupon.ID)))
+		w.Write([]byte(fmt.Sprintf("created rewards with couponID: %v", coupon.CouponID)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *coupon) Edit() http.HandlerFunc {
 		}
 
 		coupon, _ = c.repo.Edit(coupon)
-		w.Write([]byte(fmt.Sprintf("created customer with ID: %v", coupon.ID)))
+		w.Write([]byte(fmt.Sprintf("Coupon with couponID %v is editted", coupon.CouponID)))
 	}
 }

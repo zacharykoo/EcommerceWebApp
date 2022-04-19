@@ -72,7 +72,7 @@ func (c *shipment) Create() http.HandlerFunc {
 
 		shipment, _ = c.repo.Create(shipment)
 		shipment.ShipmentID = shipment.ID
-		w.Write([]byte(fmt.Sprintf("created shipment with No: %v", shipment.ID)))
+		w.Write([]byte(fmt.Sprintf("created shipment with shipmentID: %v", shipment.ShipmentID)))
 	}
 }
 
@@ -91,6 +91,6 @@ func (c *shipment) Edit() http.HandlerFunc {
 		}
 
 		shipment, _ = c.repo.Edit(shipment)
-		w.Write([]byte(fmt.Sprintf("created shipment with ID: %v", shipment.ID)))
+		w.Write([]byte(fmt.Sprintf("Shipment with shipmentID %v is editted", shipment.ShipmentID)))
 	}
 }
