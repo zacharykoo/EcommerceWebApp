@@ -15,9 +15,15 @@ func GetOrderRepository(db *gorm.DB) orderRepository {
 	}
 }
 
-func (c *orderRepository) Get() ([]model.Order, error) {
+func (c *orderRepository) Get(ID int) ([]model.Order, error) {
 	var order []model.Order
-	err := c.db.Find(&order).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("order_no = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&order).Error
 	return order, err
 }
 func (c *orderRepository) Create(order model.Order) (model.Order, error) {

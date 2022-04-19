@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,8 +23,20 @@ func GetOrderService(repo repository.OrderRepository) OrderService {
 
 func (c *order) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
-		someOrder, err := c.repo.Get()
+		var order_no int
+		var err error
+		order_noString := r.URL.Query().Get(KeyOrder_no)
+		if order_noString == "" {
+			order_no = 0
+		} else {
+			order_no, err = strconv.Atoi(order_noString)
+			if err != nil {
+				fmt.Printf("unable to parse order_no: %v", err)
+				w.Write([]byte("error getting order"))
+				return
+			}
+		}
+		someOrder, err := c.repo.Get(order_no)
 		if err != nil {
 			fmt.Printf("unable to get order: %v", err)
 			w.Write([]byte("error getting order"))
@@ -45,7 +58,6 @@ func (c *order) Get() http.HandlerFunc {
 
 func (c *order) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -66,7 +78,6 @@ func (c *order) Create() http.HandlerFunc {
 
 func (c *order) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,8 +23,20 @@ func GetShoppingCartService(repo repository.ShoppingCartRepository) ShoppingCart
 
 func (c *shoppingCart) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
-		someShoppingCart, err := c.repo.Get()
+		var cartID int
+		var err error
+		cartIDString := r.URL.Query().Get(KeyCartID)
+		if cartIDString == "" {
+			cartID = 0
+		} else {
+			cartID, err = strconv.Atoi(cartIDString)
+			if err != nil {
+				fmt.Printf("unable to parse cartID: %v", err)
+				w.Write([]byte("error getting cart"))
+				return
+			}
+		}
+		someShoppingCart, err := c.repo.Get(cartID)
 		if err != nil {
 			fmt.Printf("unable to get shopping cart: %v", err)
 			w.Write([]byte("error getting shopping cart"))
@@ -45,7 +58,6 @@ func (c *shoppingCart) Get() http.HandlerFunc {
 
 func (c *shoppingCart) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -66,7 +78,6 @@ func (c *shoppingCart) Create() http.HandlerFunc {
 
 func (c *shoppingCart) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

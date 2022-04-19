@@ -5,9 +5,21 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
+)
+
+const (
+	KeyMembershipID = "membershipID"
+	KeyRewardpt_no  = "rewardpt_no"
+	KeyItem_no      = "item_no"
+	KeyCartID       = "cartID"
+	KeyShipmentID   = "shipmentID"
+	KeyOrder_no     = "order_no"
+	KeyCouponID     = "couponID"
+	KeyAdminID      = "adminID"
 )
 
 type customer struct {
@@ -20,14 +32,23 @@ func GetCustomerService(repo repository.CustomerRepository) CustomerService {
 	}
 }
 
-func enableCors(w *http.ResponseWriter) {
-	(*w).Header().Set("Access-Control-Allow-Origin", "*")
-}
-
 func (c *customer) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
-		someCustomer, err := c.repo.Get()
+
+		var membershipID int
+		var err error
+		membershipIDString := r.URL.Query().Get(KeyMembershipID)
+		if membershipIDString == "" {
+			membershipID = 0
+		} else {
+			membershipID, err = strconv.Atoi(membershipIDString)
+			if err != nil {
+				fmt.Printf("unable to parse membershipID: %v", err)
+				w.Write([]byte("error getting customer"))
+				return
+			}
+		}
+		someCustomer, err := c.repo.Get(membershipID)
 		if err != nil {
 			fmt.Printf("unable to get customer: %v", err)
 			w.Write([]byte("error getting customer"))
@@ -49,7 +70,6 @@ func (c *customer) Get() http.HandlerFunc {
 
 func (c *customer) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -69,7 +89,6 @@ func (c *customer) Create() http.HandlerFunc {
 
 func (c *customer) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

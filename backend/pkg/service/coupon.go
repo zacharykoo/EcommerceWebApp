@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/model"
 	"github.com/zacharykoo/EcommerceWebApp/backend/pkg/repository"
@@ -22,8 +23,20 @@ func GetCouponService(repo repository.CouponRepository) CouponService {
 
 func (c *coupon) Get() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
-		someCoupon, err := c.repo.Get()
+		var couponID int
+		var err error
+		couponIDString := r.URL.Query().Get(KeyCouponID)
+		if couponIDString == "" {
+			couponID = 0
+		} else {
+			couponID, err = strconv.Atoi(couponIDString)
+			if err != nil {
+				fmt.Printf("unable to parse couponID: %v", err)
+				w.Write([]byte("error getting coupon"))
+				return
+			}
+		}
+		someCoupon, err := c.repo.Get(couponID)
 		if err != nil {
 			fmt.Printf("unable to get coupon: %v", err)
 			w.Write([]byte("error getting coupon"))
@@ -45,7 +58,6 @@ func (c *coupon) Get() http.HandlerFunc {
 
 func (c *coupon) Create() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)
@@ -66,7 +78,6 @@ func (c *coupon) Create() http.HandlerFunc {
 
 func (c *coupon) Edit() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		enableCors(&w)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			fmt.Printf("unable to read body: %v", err)

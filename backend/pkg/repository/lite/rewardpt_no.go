@@ -15,9 +15,15 @@ func GetRewardpt_noRepository(db *gorm.DB) rewardpt_noRepository {
 	}
 }
 
-func (c *rewardpt_noRepository) Get() ([]model.Rewardpt_no, error) {
+func (c *rewardpt_noRepository) Get(ID int) ([]model.Rewardpt_no, error) {
 	var rewardpt_no []model.Rewardpt_no
-	err := c.db.Find(&rewardpt_no).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("membershipID = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&rewardpt_no).Error
 	return rewardpt_no, err
 }
 func (c *rewardpt_noRepository) Create(rewardpt_no model.Rewardpt_no) (model.Rewardpt_no, error) {

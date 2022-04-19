@@ -15,9 +15,15 @@ func GetCustomerRepository(db *gorm.DB) customerRepository {
 	}
 }
 
-func (c *customerRepository) Get() ([]model.Customer, error) {
+func (c *customerRepository) Get(ID int) ([]model.Customer, error) {
 	var customers []model.Customer
-	err := c.db.Find(&customers).Error
+	option := func(db *gorm.DB, ID int) *gorm.DB {
+		if ID != 0 {
+			return db.Where("membershipID = ?", ID)
+		}
+		return db
+	}
+	err := option(c.db, ID).Find(&customers).Error
 	return customers, err
 }
 

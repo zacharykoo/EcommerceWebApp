@@ -68,7 +68,7 @@ func TestUpdateCustomer(t *testing.T) {
 }
 
 func TestGetCustomerWithID(t *testing.T) {
-	membershipID := 4
+	membershipID := 2
 	url := fmt.Sprintf("http://localhost:8081/api/customer?membershipID=%d", membershipID)
 
 	resp, err := http.Get(url)
@@ -80,8 +80,28 @@ func TestGetCustomerWithID(t *testing.T) {
 		fmt.Printf("unable to read body: %v", err)
 		return
 	}
-	var customer model.Customer
-	err = json.Unmarshal(body, &customer)
+	var customers []model.Customer
+	err = json.Unmarshal(body, &customers)
+	if err != nil {
+		fmt.Printf("unable to unmarshal into customer: %v", err)
+		return
+	}
+}
+
+func TestGetCustomerWithoutID(t *testing.T) {
+	url := "http://localhost:8081/api/customer"
+
+	resp, err := http.Get(url)
+	if err != nil {
+		t.Fatalf("Unable to get customer from membershipID: %v", err)
+	}
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf("unable to read body: %v", err)
+		return
+	}
+	var customers []model.Customer
+	err = json.Unmarshal(body, &customers)
 	if err != nil {
 		fmt.Printf("unable to unmarshal into customer: %v", err)
 		return
