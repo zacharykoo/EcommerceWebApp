@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { DataService } from '../../../_services/data.service';
 
 import { Customer } from '../../../_objects/customer';
 
+
+import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -22,19 +24,43 @@ export class SignupComponent implements OnInit {
 	};
 
 
-	newCustomer():void {
-		alert("Called newCustomer");
-		this.tempCustomer.firstname = (<HTMLInputElement>document.getElementById('firstname')).value;
+	firstname: string = "";
+	lastname: string = "";
+	phone_no: number = -1;
+	birthday: string = "";
 
-		alert(this.tempCustomer.firstname);
+	newCustomer():void {
+		this.setValue();
+		this.tempCustomer.firstname = this.firstname;
+		this.tempCustomer.lastname = this.lastname;
+		this.tempCustomer.phone_no = this.phone_no;
+		this.tempCustomer.birthday = this.birthday;
+		this.tempCustomer.membershipID = 10;
+
 
 	};
 
-  constructor() { }
+  constructor(
+  	private fb: FormBuilder,
+  	private dataService: DataService) { }
+
+// userForm = this.fb.group({firstname});
+public userForm: FormGroup = this.fb.group({
+	firstname:'',
+	lastname:'',
+	phone_no: null,
+	email:'',
+});
+
+ setValue() {
+    this.firstname = this.userForm.get('firstname')?.value; // input value retrieved
+    alert("FROM FORM " + this.userForm.get('firstname')?.value);
+
+    //TODO add
+  }
 
   ngOnInit(): void {
-
-	window.addEventListener('load', this.newCustomer,false);
+  	this.dataService.newCustomer(this.tempCustomer)
   }
 
 }

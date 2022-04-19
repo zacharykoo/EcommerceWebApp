@@ -14,9 +14,13 @@ export class CartComponent implements OnInit {
 	cart: any[] = [];
   orders: any[] = [];
   shipmentOrders: any[] =[];
-  // validCoupons: any[] = [];
-  validCoupons = ["test", "ship10"];
-
+  validCoupons: any[] = [];
+  // validCoupons = ["test", "ship10"];
+  couponIDToCode = [
+    "ten",
+    "test",
+    "shop10"
+  ];
   products: Products[] = [];
 
   organizedCart: Cart[] = [];
@@ -24,16 +28,16 @@ export class CartComponent implements OnInit {
   // checkCoupons():void {};
   checkCoupons():void{
     var inputCoupon = (<HTMLInputElement>document.getElementById('inputCoupon'))!.value;
-    for (let coupon of this.validCoupons) {
-      alert(inputCoupon + " vs " + coupon);
-      if(coupon == inputCoupon)
-      {
-        (<HTMLInputElement>document.getElementById('isCouponValid')!).innerHTML = "Coupon has been applied";
+    var valid = this.couponIDToCode.indexOf(inputCoupon);
+    if(valid != -1)
+    {
+      (<HTMLInputElement>document.getElementById('isCouponValid')!).innerHTML = "Coupon has been applied";
         alert("Works " + inputCoupon);
-      }
+      
     }
+    else {
       (<HTMLInputElement>document.getElementById('isCouponValid')!).innerHTML = "Coupon is invalid";
-      alert("Fails " + inputCoupon);
+    }
   }
 
   organizeCart():void {
@@ -49,6 +53,8 @@ export class CartComponent implements OnInit {
         }
       }
     }
+    alert(JSON.stringify(this.organizedCart));
+    alert(JSON.stringify(this.cart));
   };
 
   calculateTotal(): number{

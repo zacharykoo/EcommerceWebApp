@@ -1,34 +1,37 @@
 <h3>Sign Up</h3>
 <div class="small-container">
+	<form [formGroup]="userForm">
 		<div class="col-1">
 			<mat-form-field appearance="outline">
 				<mat-label>Email</mat-label>
-				<input matInput placeholder="Enter your email" type="email #todo" name="email">
+				<input matInput placeholder="Enter your email" type="email #todo" name="email" formControlName="email">
 			</mat-form-field>
 			<mat-form-field appearance="outline">
 				<mat-label>Phone Number</mat-label>
-				<input matInput placeholder="Enter your phone number" type="tel" #todo name="phone">
+				<input matInput placeholder="Enter your phone number" type="tel" #todo name="phone" formControlName="phone_no">
 			</mat-form-field>
 			<mat-form-field appearance="outline">
 				<mat-label>Date of birth</mat-label>
-				<input matInput placeholder="Enter your DOB" type="text" #todo name="dateofbirth">
+				<input matInput placeholder="Enter your DOB" type="text" #todo name="birthday"  formControlName="birthday">
 			</mat-form-field>
 		</div>
 		<div class="col-2">
 			<mat-form-field appearance="outline">
 				<mat-label>First name</mat-label>
-				<input matInput placeholder="Enter your first name" type="text" #todo name="firstname">
+				<input matInput placeholder="Enter your first name" type="text" name="firstname" formControlName="firstname">
 			</mat-form-field>
 			<mat-form-field appearance="outline">
 				<mat-label>Last name</mat-label>
-				<input matInput placeholder="Enter your last name" type="text" #todo name="lastname">
+				<input matInput placeholder="Enter your last name" type="text" #todo name="lastname" formControlName="lastname">
 			</mat-form-field>
 			<mat-form-field appearance="outline">
 				<mat-label>Password</mat-label>
 				<input matInput placeholder="Enter your password" type="password" #todo name="password">
 			</mat-form-field>
 		</div>
-		<button (click)="newCustomer()">Sign Up!</button>
-		<button>Cancel</button>
+	</form>
 	<!-- <button (click)="newCustomer( email.value, phone.value, dateofbirth.value, firstname.value, lastname.value)">Sign up!</button> -->
 </div>
+
+<button (click)="newCustomer()">Sign Up!</button>
+<button mat-button routerLink="/account/loginsignup" routerLinkActive="active">Cancel</button>

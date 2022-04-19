@@ -10,6 +10,7 @@ import { LoginComponent } from './account/loginsignup/login/login.component';
 import { SignupComponent } from './account/loginsignup/signup/signup.component';
 import { ManageComponent } from './account/manage/manage.component';
 import { RewardsComponent } from './account/rewards/rewards.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
 	{ path: 'account/manage', component: ManageComponent },
 	{ path: 'account/rewards', component: RewardsComponent },
 	{ path: 'cart', component: CartComponent },
+	{ path: 'admin', component: AdminComponent },
 ];
 
 @NgModule({

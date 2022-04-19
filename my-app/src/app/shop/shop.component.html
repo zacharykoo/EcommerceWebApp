@@ -1,22 +1,45 @@
 <!-- <p>SHOP WORKS</p> -->
-
-<div class="small-container">
+<!-- 
+<div class="small-container content">
   <h2>Shop</h2>
-  <div class="row">
+  <div fxLayout="row wrap" class="row">
     <mat-spinner *ngIf="products.length === 0"></mat-spinner>
+    <div *ngFor="let product of products; index as i" fxFlex="20%">
+      <mat-card>
+        <div *ngIf="i % 5 == 0" class="newLine"><br></div>
+        <mat-card-header>
+          <mat-card-title>{{product.itemName}}</mat-card-title>
+          <mat-card-subtitle>${{product.price}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{product.description}}</p>
+          <img style="width: 125px;" src="{{ product.product_image }}" />
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="addToCart(product)">Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+ -->
 
-    <mat-card *ngFor="let product of products">
-      <mat-card-header>
-        <mat-card-title>{{product.itemName}}</mat-card-title>
-        <mat-card-subtitle>${{product.price}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{product.description}}</p>
-        <img style="width: 125px;" src="{{ product.product_image }}" />
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>Add to Cart</button>
-      </mat-card-actions>
-    </mat-card>
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="32px grid">
+    <div fxFlex="20%" *ngFor="let product of products; index as i">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>{{product.itemName}}</mat-card-title>
+          <mat-card-subtitle>${{product.price}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{product.description}}</p>
+          <img style="width: 125px;" src="{{ product.product_image }}" />
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="addToCart(product)">Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
   </div>
 </div>

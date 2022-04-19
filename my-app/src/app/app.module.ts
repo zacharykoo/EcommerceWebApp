@@ -29,6 +29,8 @@ import { ManageComponent } from './account/manage/manage.component';
 import { SignupComponent } from './account/loginsignup/signup/signup.component';
 import { LoginComponent } from './account/loginsignup/login/login.component';
 import { RewardsComponent } from './account/rewards/rewards.component';
+import { AdminComponent } from './admin/admin.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { RewardsComponent } from './account/rewards/rewards.component';
     ManageComponent,
     SignupComponent,
     LoginComponent,
-    RewardsComponent
+    RewardsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,8 @@ import { RewardsComponent } from './account/rewards/rewards.component';
     MatMenuModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
