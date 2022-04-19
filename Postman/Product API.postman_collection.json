@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "5310971c-b432-4fb1-b1b8-dc9e3dfd93eb",
+		"name": "Product API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get all products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:00:37 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:33:17.4873563-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:33:17.4924617-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 1,\n        \"itemName\": \"GeForce RTX 3080\",\n        \"description\": \"Very powerful graphics card\",\n        \"price\": 2000,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6429/6429440_sd.jpg\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:34:54.6467564-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:34:54.6508391-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 2,\n        \"itemName\": \"Apple 15\",\n        \"description\": \"Very powerful camera\",\n        \"price\": 800,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://images.unsplash.com/photo-1555375771-14b2a63968a9?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAwMTk&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-16T22:36:17.3855698-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:36:17.3896432-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 3,\n        \"itemName\": \"Aloe + Rose water\",\n        \"description\": \"Make my girlfriend very happy\",\n        \"price\": 69,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1601068785450-ba55f33dfe0c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAxMTc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 4,\n        \"CreatedAt\": \"2022-04-16T22:37:44.4989367-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:37:44.5035461-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 4,\n        \"itemName\": \"Green plant\",\n        \"description\": \"Also makes my girlfriend very happy\",\n        \"price\": 10,\n        \"category\": \"Plant\",\n        \"product_image\": \"https://images.unsplash.com/photo-1485955900006-10f4d324d411?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAxODY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 5,\n        \"CreatedAt\": \"2022-04-16T22:38:51.197753-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:38:51.2024009-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 5,\n        \"itemName\": \"The Ordinary\",\n        \"description\": \"Apply to face for shinny forehead\",\n        \"price\": 10,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAyNzI&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    }\n]"
+				},
+				{
+					"name": "Get specific product with item_no",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/product?item_no=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"product"
+							],
+							"query": [
+								{
+									"key": "item_no",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:01:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "565"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:34:54.6467564-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:34:54.6508391-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 2,\n        \"itemName\": \"Apple 15\",\n        \"description\": \"Very powerful camera\",\n        \"price\": 800,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://images.unsplash.com/photo-1555375771-14b2a63968a9?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAwMTk&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Post request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"item_no\": 1,\r\n\"itemName\": \"GeForce RTX 3080\",\r\n\"description\": \"Very powerful graphics card\",\r\n\"price\": 2000,\r\n\"category\": \"Hardware\",\r\n\"product_image\": \"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6429/6429440_sd.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"itemName\": \"Axe black\",\r\n\"description\": \"Axe body spray\",\r\n\"price\": 8,\r\n\"category\": \"Beauty\",\r\n\"product_image\": \"https://images.unsplash.com/photo-1609942571926-f3fe26feab26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAzNDg0Mzc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:08:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "31"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created product with item_no: 6"
+				},
+				{
+					"name": "Get after Post request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"itemName\": \"Axe black\",\r\n\"description\": \"Axe body spray\",\r\n\"price\": 8,\r\n\"category\": \"Beauty\",\r\n\"product_image\": \"https://images.unsplash.com/photo-1609942571926-f3fe26feab26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAzNDg0Mzc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:08:27 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:33:17.4873563-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:33:17.4924617-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 1,\n        \"itemName\": \"GeForce RTX 3080\",\n        \"description\": \"Very powerful graphics card\",\n        \"price\": 2000,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6429/6429440_sd.jpg\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:34:54.6467564-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:34:54.6508391-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 2,\n        \"itemName\": \"Apple 15\",\n        \"description\": \"Very powerful camera\",\n        \"price\": 800,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://images.unsplash.com/photo-1555375771-14b2a63968a9?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAwMTk&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-16T22:36:17.3855698-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:36:17.3896432-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 3,\n        \"itemName\": \"Aloe + Rose water\",\n        \"description\": \"Make my girlfriend very happy\",\n        \"price\": 69,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1601068785450-ba55f33dfe0c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAxMTc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 4,\n        \"CreatedAt\": \"2022-04-16T22:37:44.4989367-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:37:44.5035461-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 4,\n        \"itemName\": \"Green plant\",\n        \"description\": \"Also makes my girlfriend very happy\",\n        \"price\": 10,\n        \"category\": \"Plant\",\n        \"product_image\": \"https://images.unsplash.com/photo-1485955900006-10f4d324d411?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAxODY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 5,\n        \"CreatedAt\": \"2022-04-16T22:38:51.197753-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:38:51.2024009-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 5,\n        \"itemName\": \"The Ordinary\",\n        \"description\": \"Apply to face for shinny forehead\",\n        \"price\": 10,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAyNzI&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 6,\n        \"CreatedAt\": \"2022-04-19T00:08:10.502724-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:08:10.5139334-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 6,\n        \"itemName\": \"Axe black\",\n        \"description\": \"Axe body spray\",\n        \"price\": 8,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1609942571926-f3fe26feab26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAzNDg0Mzc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Put request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Put request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"item_no\": 6,\r\n\"itemName\": \"Axe Black\",\r\n\"description\": \"Axe body spray but also editted to show PUT request\",\r\n\"price\": 8,\r\n\"category\": \"Beauty\",\r\n\"product_image\": \"https://images.unsplash.com/photo-1609942571926-f3fe26feab26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAzNDg0Mzc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:11:36 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "33"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Product with item_no 6 is editted"
+				},
+				{
+					"name": "Get after Post request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"item_no\": 6,\r\n\"itemName\": \"Axe Black\",\r\n\"description\": \"Axe body spray but also editted to show PUT request\",\r\n\"price\": 8,\r\n\"category\": \"Beauty\",\r\n\"product_image\": \"https://images.unsplash.com/photo-1609942571926-f3fe26feab26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAzNDg0Mzc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 06:11:59 GMT"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:33:17.4873563-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:33:17.4924617-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 1,\n        \"itemName\": \"GeForce RTX 3080\",\n        \"description\": \"Very powerful graphics card\",\n        \"price\": 2000,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6429/6429440_sd.jpg\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-16T22:34:54.6467564-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:34:54.6508391-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 2,\n        \"itemName\": \"Apple 15\",\n        \"description\": \"Very powerful camera\",\n        \"price\": 800,\n        \"category\": \"Hardware\",\n        \"product_image\": \"https://images.unsplash.com/photo-1555375771-14b2a63968a9?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAwMTk&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 3,\n        \"CreatedAt\": \"2022-04-16T22:36:17.3855698-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:36:17.3896432-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 3,\n        \"itemName\": \"Aloe + Rose water\",\n        \"description\": \"Make my girlfriend very happy\",\n        \"price\": 69,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1601068785450-ba55f33dfe0c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAxMTc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 4,\n        \"CreatedAt\": \"2022-04-16T22:37:44.4989367-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:37:44.5035461-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 4,\n        \"itemName\": \"Green plant\",\n        \"description\": \"Also makes my girlfriend very happy\",\n        \"price\": 10,\n        \"category\": \"Plant\",\n        \"product_image\": \"https://images.unsplash.com/photo-1485955900006-10f4d324d411?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAxODY&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 5,\n        \"CreatedAt\": \"2022-04-16T22:38:51.197753-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:38:51.2024009-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 5,\n        \"itemName\": \"The Ordinary\",\n        \"description\": \"Apply to face for shinny forehead\",\n        \"price\": 10,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAxNzAyNzI&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    },\n    {\n        \"ID\": 6,\n        \"CreatedAt\": \"2022-04-19T00:08:10.502724-06:00\",\n        \"UpdatedAt\": \"2022-04-19T00:11:36.7114419-06:00\",\n        \"DeletedAt\": null,\n        \"item_no\": 6,\n        \"itemName\": \"Axe Black\",\n        \"description\": \"Axe body spray but also editted to show PUT request\",\n        \"price\": 8,\n        \"category\": \"Beauty\",\n        \"product_image\": \"https://images.unsplash.com/photo-1609942571926-f3fe26feab26?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8cHJvZHVjdHx8fHx8fDE2NTAzNDg0Mzc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600\"\n    }\n]"
+				}
+			]
+		}
+	]
+}

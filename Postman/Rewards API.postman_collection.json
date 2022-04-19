@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "5b1454e2-0618-48ab-9f2b-5e54f6bd57f4",
+		"name": "Rewards API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request for Rewards",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Get request for specific rewardpt_no",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/rewards?rewardpt_no=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							],
+							"query": [
+								{
+									"key": "rewardpt_no",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:46:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:52:33.8545456-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:52:33.8586279-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 1,\n        \"point_awarded\": 800,\n        \"awarded_date\": \"15/4/2022\",\n        \"product_purchased\": \"Nvidia RTX 3090\"\n    }\n]"
+				},
+				{
+					"name": "Get request for all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:48:50 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "451"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:52:33.8545456-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:52:33.8586279-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 1,\n        \"point_awarded\": 800,\n        \"awarded_date\": \"15/4/2022\",\n        \"product_purchased\": \"Nvidia RTX 3090\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:48:15.2398104-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:48:15.2509791-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 2,\n        \"point_awarded\": 100,\n        \"awarded_date\": \"18/4/2022\",\n        \"product_purchased\": \"Some sample product\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"point_awarded\": 100,\r\n\"awarded_date\": \"18/4/2022\",\r\n\"product_purchased\": \"Some sample product\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/rewards",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"rewards"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get before Post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"point_awarded\": 100,\r\n\"awarded_date\": \"18/4/2022\",\r\n\"product_purchased\": \"Some sample product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:47:54 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "224"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:52:33.8545456-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:52:33.8586279-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 1,\n        \"point_awarded\": 800,\n        \"awarded_date\": \"15/4/2022\",\n        \"product_purchased\": \"Nvidia RTX 3090\"\n    }\n]"
+				},
+				{
+					"name": "Post request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"point_awarded\": 100,\r\n\"awarded_date\": \"18/4/2022\",\r\n\"product_purchased\": \"Some sample product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:48:15 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created rewards with rewardpt_no: 2"
+				},
+				{
+					"name": "Get after Post",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"point_awarded\": 100,\r\n\"awarded_date\": \"18/4/2022\",\r\n\"product_purchased\": \"Some sample product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:48:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "451"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:52:33.8545456-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:52:33.8586279-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 1,\n        \"point_awarded\": 800,\n        \"awarded_date\": \"15/4/2022\",\n        \"product_purchased\": \"Nvidia RTX 3090\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:48:15.2398104-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:48:15.2509791-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 2,\n        \"point_awarded\": 100,\n        \"awarded_date\": \"18/4/2022\",\n        \"product_purchased\": \"Some sample product\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rewardpt_no\": 2,\r\n    \"point_awarded\": 150,\r\n    \"awarded_date\": \"15/4/2022\",\r\n    \"product_purchased\": \"Edited product\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": [
+				{
+					"name": "Put request",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rewardpt_no\": 2,\r\n    \"point_awarded\": 150,\r\n    \"awarded_date\": \"15/4/2022\",\r\n    \"product_purchased\": \"Edited product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:49:35 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "37"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Rewards with rewardpt_no 2 is editted"
+				},
+				{
+					"name": "Get after put",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rewardpt_no\": 2,\r\n    \"point_awarded\": 150,\r\n    \"awarded_date\": \"15/4/2022\",\r\n    \"product_purchased\": \"Edited product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewards",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewards"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:50:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "446"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:52:33.8545456-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:52:33.8586279-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 1,\n        \"point_awarded\": 800,\n        \"awarded_date\": \"15/4/2022\",\n        \"product_purchased\": \"Nvidia RTX 3090\"\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:48:15.2398104-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:49:35.4092684-06:00\",\n        \"DeletedAt\": null,\n        \"rewardpt_no\": 2,\n        \"point_awarded\": 150,\n        \"awarded_date\": \"15/4/2022\",\n        \"product_purchased\": \"Edited product\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}

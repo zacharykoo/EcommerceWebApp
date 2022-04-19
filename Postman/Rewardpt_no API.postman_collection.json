@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "e765248b-52e7-4a2a-8700-00da4cee8894",
+		"name": "Rewardpt_no API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get request for Rewardpt_no",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/api/rewardpt_no",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"rewardpt_no"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get request for Rewardpt_no for sepecific customer",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no?membershipID=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							],
+							"query": [
+								{
+									"key": "membershipID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:44:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 1,\n        \"reward_no\": 1\n    }\n]"
+				},
+				{
+					"name": "Get request for Rewardpt_no",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							],
+							"query": [
+								{
+									"key": "membershipID",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:44:51 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 1,\n        \"reward_no\": 1\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:29:55.0087238-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:35:56.8362171-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 2,\n        \"reward_no\": 3\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Post request for Rewardpt_no",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"membershipID\": 2,\r\n    \"reward_no\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/rewardpt_no",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"rewardpt_no"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get request before POST",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"membershipID\": 1,\r\n    \"reward_no\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:29:10 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "154"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 1,\n        \"reward_no\": 1\n    }\n]"
+				},
+				{
+					"name": "Post request for Rewardpt_no",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"membershipID\": 2,\r\n    \"reward_no\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:29:55 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "40"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "created rewardpt_no with membershipID: 2"
+				},
+				{
+					"name": "Get request after Post request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"membershipID\": 2,\r\n    \"reward_no\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:33:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 1,\n        \"reward_no\": 1\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:29:55.0087238-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:29:55.0087238-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 2,\n        \"reward_no\": 2\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Put request for awardpt_no",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"membershipID\": 2,\r\n    \"reward_no\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/rewardpt_no",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"rewardpt_no"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get request before Put request for awardpt_no",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:34:58 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 1,\n        \"reward_no\": 1\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:29:55.0087238-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:29:55.0087238-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 2,\n        \"reward_no\": 2\n    }\n]"
+				},
+				{
+					"name": "Put request for awardpt_no",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"membershipID\": 2,\r\n    \"reward_no\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:35:56 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "Rewardpt_no with membershipID 2 is editted"
+				},
+				{
+					"name": "Get request after Put request for awardpt_no",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"membershipID\": 2,\r\n    \"reward_no\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/rewardpt_no",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"rewardpt_no"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 19 Apr 2022 05:36:15 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"ID\": 1,\n        \"CreatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"UpdatedAt\": \"2022-04-16T22:53:03.3988603-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 1,\n        \"reward_no\": 1\n    },\n    {\n        \"ID\": 2,\n        \"CreatedAt\": \"2022-04-18T23:29:55.0087238-06:00\",\n        \"UpdatedAt\": \"2022-04-18T23:35:56.8362171-06:00\",\n        \"DeletedAt\": null,\n        \"membershipID\": 2,\n        \"reward_no\": 3\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "localhost:3000",
+			"type": "string"
+		}
+	]
+}
